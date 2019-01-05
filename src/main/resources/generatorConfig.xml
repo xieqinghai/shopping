@@ -11,6 +11,7 @@
             <property name="suppressAllComments" value="false"/>
             <property name="suppressDate" value="true"/>
         </commentGenerator>
+        <!-- 数据库连接池配置, 数据从配置文件里拿 -->
         <jdbcConnection userId="${spring.datasource.druid.username}"
                         password="${spring.datasource.druid.password}"
                         driverClass="${spring.datasource.druid.driver-class-name}"
@@ -19,7 +20,7 @@
         <javaTypeResolver>
             <property name="forceBigDecimals" value="false"/>
         </javaTypeResolver>
-        <!--生成pojo实体类-->
+        <!--生成pojo实体类  路径-->
         <javaModelGenerator targetPackage="com.neuedu.pojo" targetProject="./src/main/java">
             <property name="enableSubPackages" value="false"/>
             <property name="trimStrings" value="true"/>
@@ -34,22 +35,23 @@
             <property name="enableSubPackages" value="false"/>
         </javaClientGenerator>
 
+        <!-- 根据表名与字段创建对应的实体类 -->
         <table  tableName="neuedu_user" domainObjectName="UserInfo" enableCountByExample="false" enableDeleteByExample="false"
-                       enableSelectByExample="false" enableUpdateByExample="false"/>
-    <table  tableName="neuedu_category" domainObjectName="Category" enableCountByExample="false" enableDeleteByExample="false"
-            enableSelectByExample="false" enableUpdateByExample="false"/>
-    <table  tableName="neuedu_product" domainObjectName="Product" enableCountByExample="false" enableDeleteByExample="false"
-            enableSelectByExample="false" enableUpdateByExample="false"/>
-    <table  tableName="neuedu_cart" domainObjectName="Cart" enableCountByExample="false" enableDeleteByExample="false"
-            enableSelectByExample="false" enableUpdateByExample="false"/>
-    <table  tableName="neuedu_order" domainObjectName="Order" enableCountByExample="false" enableDeleteByExample="false"
-            enableSelectByExample="false" enableUpdateByExample="false"/>
-    <table  tableName="neuedu_order_item" domainObjectName="OrderItem" enableCountByExample="false" enableDeleteByExample="false"
-            enableSelectByExample="false" enableUpdateByExample="false"/>
-    <table  tableName="neuedu_payinfo" domainObjectName="PayInfo" enableCountByExample="false" enableDeleteByExample="false"
-            enableSelectByExample="false" enableUpdateByExample="false"/>
-    <table  tableName="neuedu_shipping" domainObjectName="Shipping" enableCountByExample="false" enableDeleteByExample="false"
-            enableSelectByExample="false" enableUpdateByExample="false"/>
+                enableSelectByExample="false" enableUpdateByExample="false"/>
+        <table  tableName="neuedu_category" domainObjectName="Category" enableCountByExample="false" enableDeleteByExample="false"
+                enableSelectByExample="false" enableUpdateByExample="false"/>
+        <table  tableName="neuedu_product" domainObjectName="Product" enableCountByExample="false" enableDeleteByExample="false"
+                enableSelectByExample="false" enableUpdateByExample="false"/>
+        <table  tableName="neuedu_cart" domainObjectName="Cart" enableCountByExample="false" enableDeleteByExample="false"
+                enableSelectByExample="false" enableUpdateByExample="false"/>
+        <table  tableName="neuedu_order" domainObjectName="Order" enableCountByExample="false" enableDeleteByExample="false"
+                enableSelectByExample="false" enableUpdateByExample="false"/>
+        <table  tableName="neuedu_order_item" domainObjectName="OrderItem" enableCountByExample="false" enableDeleteByExample="false"
+                enableSelectByExample="false" enableUpdateByExample="false"/>
+        <table  tableName="neuedu_payinfo" domainObjectName="PayInfo" enableCountByExample="false" enableDeleteByExample="false"
+                enableSelectByExample="false" enableUpdateByExample="false"/>
+        <table  tableName="neuedu_shipping" domainObjectName="Shipping" enableCountByExample="false" enableDeleteByExample="false"
+                enableSelectByExample="false" enableUpdateByExample="false"/>
 
-</context>
+    </context>
 </generatorConfiguration>

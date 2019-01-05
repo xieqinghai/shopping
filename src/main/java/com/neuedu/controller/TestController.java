@@ -1,5 +1,6 @@
 package com.neuedu.controller;
 
+import com.neuedu.common.ServerResponse;
 import com.neuedu.dao.UserInfoMapper;
 import com.neuedu.pojo.UserInfo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,9 +15,15 @@ public class TestController {
     UserInfoMapper userInfoMapper;
 
     @RequestMapping("/user/{userInfo}")
-    public UserInfo getById(@PathVariable int userInfo) {
+    public ServerResponse<UserInfo> getById(@PathVariable int userInfo) {
 
-        return userInfoMapper.selectByPrimaryKey(userInfo);
+        UserInfo u = userInfoMapper.selectByPrimaryKey(userInfo);
+
+        if(u != null) {
+            return ServerResponse.createServerResponseBySucess(null,u);
+        } else {
+            return ServerResponse.createServerResponseByError("fail");
+        }
     }
 
 
