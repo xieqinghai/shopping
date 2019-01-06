@@ -37,8 +37,8 @@
       update_time, ip)
     values (#{id,jdbcType=INTEGER}, #{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
       #{email,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, #{question,jdbcType=VARCHAR}, 
-      #{answer,jdbcType=VARCHAR}, #{role,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, 
-      #{updateTime,jdbcType=TIMESTAMP}, #{ip,jdbcType=VARCHAR})
+      #{answer,jdbcType=VARCHAR}, #{role,jdbcType=INTEGER}, now(),
+      now(), #{ip,jdbcType=VARCHAR})
   </insert>
   <update id="updateByPrimaryKey" parameterType="com.neuedu.pojo.UserInfo" >
     <!--
@@ -58,6 +58,13 @@
       ip = #{ip,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
+
+  <update id="updateUserPassword" parameterType="map">
+    update neuedu_user
+    set password = #{password},update_time = now()
+    where username = #{username}
+  </update>
+
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     <!--
       WARNING - @mbggenerated
@@ -77,4 +84,36 @@
     update_time, ip
     from neuedu_user
   </select>
+
+  <select id="checkUsername" parameterType="string" resultType="int">
+    select count(1) from neuedu_user where username = #{username}
+  </select>
+
+  <select id="checkEmail" parameterType="string" resultType="int">
+    select count(1) from neuedu_user where email = #{email}
+  </select>
+
+  <select id="selectUserInfoByUsernameAndPassword" parameterType="map" resultMap="BaseResultMap">
+    select id, username, password, email, phone, question, answer, role, create_time,
+    update_time, ip
+    from neuedu_user
+    where username = #{username} and password = #{password}
+  </select>
+
+  <select id="selectQuestionByUsername" parameterType="string" resultType="string">
+    select question
+    from neuedu_user
+    where username = #{username}
+  </select>
+
+  <select id="selectByUsernameAndQuestionAndAnswer" parameterType="map" resultType="int">
+    select count(1)
+    from neuedu_user
+    where username = #{username} and question = #{question} and answer = #{answer}
+  </select>
+
+
+
+
+
 </mapper>
