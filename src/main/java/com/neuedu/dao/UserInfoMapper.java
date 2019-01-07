@@ -82,7 +82,10 @@ public interface UserInfoMapper {
     int updateUserPassword(@Param("username") String username,
                            @Param("password") String password);
 
-
+    /**
+     * 更新用户信息接口
+     * */
+    int updateUserBySelectActive(UserInfo userInfo);
 
 
 
