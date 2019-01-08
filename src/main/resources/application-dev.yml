@@ -17,3 +17,6 @@ spring.datasource.druid.test-on-return: true
 
   #定义mapper文件的位置 将dao与对应mapper文件关联起来
 mybatis.mapper-locations: classpath*:com/neuedu/mapper/*Mapper.xml
+
+
+imageHost: http://localhost:8080
