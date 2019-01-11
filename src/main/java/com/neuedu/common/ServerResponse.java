@@ -67,6 +67,13 @@ public class ServerResponse<T> {
 
 
     /**
+     * "status":1
+     * */
+    public static ServerResponse createServerResponseByError() {
+        return new ServerResponse(ResponseCode.ERROR);
+    }
+
+    /**
      * {"status":custom} 自定义状态码
      * */
     public static ServerResponse createServerResponseByError(Integer status) {

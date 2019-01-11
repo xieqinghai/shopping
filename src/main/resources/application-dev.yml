@@ -9,14 +9,35 @@ spring.datasource.druid.driver-class-name: com.mysql.cj.jdbc.Driver
 spring.datasource.druid.url: jdbc:mysql://localhost:3306/shopping?characterEncoding=utf8&serverTimezone=Asia/Shanghai
 spring.datasource.druid.username: root
 spring.datasource.druid.password: 123456
+#最大活动数(连接数)
 spring.datasource.druid.max-active: 20
+#池中无连接了,等待多少毫秒,类似阻塞
 spring.datasource.druid.max-wait: 6000
+#最小空闲连接数
 spring.datasource.druid.min-idle: 1
+#当从数据库连接池中获取连接时,是否要检查连接的有效性
 spring.datasource.druid.test-on-borrow: true
+#将连接放入数据库连接池时,是否要检查连接的有效性
 spring.datasource.druid.test-on-return: true
 
   #定义mapper文件的位置 将dao与对应mapper文件关联起来
 mybatis.mapper-locations: classpath*:com/neuedu/mapper/*Mapper.xml
+####### mysql配置完成 ###################
+
+#图片服务器地址前缀
+# imageHost: http://localhost:8080/uploadpic
+imageHost: http://39.105.149.25/img
 
 
-imageHost: http://localhost:8080
+
+#分页配置
+pagehelper.helper-dialect: mysql
+pagehelper.reasonable: true
+pagehelper.support-methods-arguments: true
+pagehelper.params: countSql
+
+
+#ftp访问服务器配置
+ftp.server.ip: 39.105.149.25
+ftp.server.user: ftpuser
+ftp.server.password: 123456

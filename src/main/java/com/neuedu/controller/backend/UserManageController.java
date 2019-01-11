@@ -34,6 +34,7 @@ public class UserManageController {
             }
             session.setAttribute(Const.CURRENTUSER,userInfo);
         }
+
         return serverResponse;
     }
 

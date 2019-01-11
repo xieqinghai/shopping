@@ -17,3 +17,12 @@ spring.datasource.druid.test-on-return: true
 
 #定义mapper文件的位置 将dao与对应mapper文件关联起来
 mybatis.mapper-locations: classpath*:com/neuedu/mapper/*Mapper.xml
+
+
+
+
+#分页配置
+pagehelper.helper-dialect: mysql
+pagehelper.reasonable: true
+pagehelper.support-methods-arguments: true
+pagehelper.params: countSql

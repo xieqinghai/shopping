@@ -387,4 +387,36 @@ public class Product {
     public void setDetail(String detail) {
         this.detail = detail == null ? null : detail.trim();
     }
+
+
+    /**
+     * 以下为新增字段
+     * */
+    private byte isNew;
+    private byte isHot;
+    private byte isBanner;
+
+    public byte getIsNew() {
+        return isNew;
+    }
+
+    public void setIsNew(byte isNew) {
+        this.isNew = isNew;
+    }
+
+    public byte getIsHot() {
+        return isHot;
+    }
+
+    public void setIsHot(byte isHot) {
+        this.isHot = isHot;
+    }
+
+    public byte getIsBanner() {
+        return isBanner;
+    }
+
+    public void setIsBanner(byte isBanner) {
+        this.isBanner = isBanner;
+    }
 }

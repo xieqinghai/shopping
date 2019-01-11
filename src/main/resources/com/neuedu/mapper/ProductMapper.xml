@@ -18,6 +18,9 @@
     <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
     <result column="sub_images" property="subImages" jdbcType="LONGVARCHAR" />
     <result column="detail" property="detail" jdbcType="LONGVARCHAR" />
+    <result column="is_new" property="isNew"></result>
+    <result column="is_hot" property="isHot"></result>
+    <result column="is_banner" property="isBanner"></result>
   </resultMap>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     <!--
@@ -66,7 +69,7 @@
 
     update neuedu_product
     <set>
-      <if test="category_id != null">
+      <if test="categoryId != null">
         category_id = #{categoryId,jdbcType=INTEGER},
       </if>
       <if test="name != null">
@@ -75,7 +78,7 @@
       <if test="subtitle != null">
         subtitle = #{subtitle,jdbcType=VARCHAR},
       </if>
-      <if test="main_image != null">
+      <if test="mainImage != null">
         main_image = #{mainImage,jdbcType=VARCHAR},
       </if>
       <if test="price != null">
@@ -87,11 +90,11 @@
       <if test="status != null">
         status = #{status,jdbcType=INTEGER},
       </if>
-      <if test="sub_images != null">
+      <if test="subImages != null">
         sub_images = #{subImages,jdbcType=LONGVARCHAR},
       </if>
       <if test="detail != null">
-        detail = #{detail,jdbcType=LONGVARCHAR}
+        detail = #{detail,jdbcType=LONGVARCHAR},
       </if>
       update_time = now()
     </set>
@@ -118,6 +121,42 @@
     update_time, sub_images, detail
     from neuedu_product
   </select>
+
+  <select id="findProductByProductIdAndProductName" parameterType="map" resultMap="BaseResultMap">
+
+      select id, category_id, name, subtitle, main_image, price, stock, status, create_time,
+      update_time, sub_images, detail
+      from neuedu_product
+      <where>
+        <if test="productId != null">
+          id = #{productId,jdbcType=INTEGER}
+        </if>
+        <if test="productName != null">
+          and name like #{productName}
+        </if>
+      </where>
+
+  </select>
+
+  <select id="searchProduct" parameterType="map" resultMap="BaseResultMap">
+
+    select id, category_id, name, subtitle, main_image, price, stock, status, create_time,
+    update_time, sub_images, detail
+    from neuedu_product
+    <where>
+      <if test="integerSet != null and integerSet.size>0">
+        and category_id in
+        <foreach collection="integerSet" item="categoryId" open="(" close=")" separator=",">
+          #{categoryId}
+        </foreach>
+      </if>
+      <if test="keyword != null">
+        and name like #{keyword}
+      </if>
+    </where>
+  </select>
+
+
 
 
 
