@@ -152,6 +152,100 @@ public class Const {
         }
     }
 
+    /**
+     * 订单状态的枚举
+     * */
+    public enum OrderStatusEnum{
+// 0-已取消 10-未付款 20-已付款 40-已发货 50-交易成功 60-交易关闭
+        ORDER_CANCELED(0,"已取消"),
+        ORDER_UN_PAY(10,"未付款"),
+        ORDER_PAYED(20,"已付款"),
+        ORDER_SEND(40,"已发货"),
+        ORDER_SUCCESS(50,"交易成功"),
+        ORDER_CLOSED(60,"交易关闭")
+
+        ;
+
+        private int code;
+        private String desc;
+        private OrderStatusEnum(int code,String desc){
+            this.code = code;
+            this.desc = desc;
+        }
+
+        public int getCode() {
+            return code;
+        }
+
+        public void setCode(int code) {
+            this.code = code;
+        }
+
+        public String getDesc() {
+            return desc;
+        }
+
+        public void setDesc(String desc) {
+            this.desc = desc;
+        }
+
+        // 遍历枚举 通过values()
+          //遍历自身, 返回自身
+        public static OrderStatusEnum codeOf(Integer code) {
+            for(OrderStatusEnum orderStatusEnum:values()) {
+                if(code == orderStatusEnum.getCode()) {
+                    return orderStatusEnum;
+                }
+            }
+            return null;
+        }
+
+    }
+
+    /**
+     * 支付类型
+     * */
+    public enum PaymentEnum{
+// 1-在线支付
+        ONLINE(1,"线上支付"),
+
+
+        ;
+
+        private int code;
+        private String desc;
+        private PaymentEnum(int code,String desc){
+            this.code = code;
+            this.desc = desc;
+        }
+
+        //遍历枚举 , 遍历自身返回自身
+        public static PaymentEnum codeOf(Integer code) {
+            for(PaymentEnum paymentEnum:values()) {
+                if(code == paymentEnum.getCode()) {
+                    return paymentEnum;
+                }
+            }
+            return null;
+        }
+
+        public int getCode() {
+            return code;
+        }
+
+        public void setCode(int code) {
+            this.code = code;
+        }
+
+        public String getDesc() {
+            return desc;
+        }
+
+        public void setDesc(String desc) {
+            this.desc = desc;
+        }
+    }
+
 
 
 }

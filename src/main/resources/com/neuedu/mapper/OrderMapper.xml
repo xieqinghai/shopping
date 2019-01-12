@@ -43,7 +43,7 @@
       #{shippingId,jdbcType=INTEGER}, #{payment,jdbcType=DECIMAL}, #{paymentType,jdbcType=INTEGER}, 
       #{postage,jdbcType=INTEGER}, #{status,jdbcType=INTEGER}, #{paymentTime,jdbcType=TIMESTAMP}, 
       #{sendTime,jdbcType=TIMESTAMP}, #{endTime,jdbcType=TIMESTAMP}, #{closeTime,jdbcType=TIMESTAMP}, 
-      #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP})
+      now(), now())
   </insert>
   <update id="updateByPrimaryKey" parameterType="com.neuedu.pojo.Order" >
     <!--
@@ -85,4 +85,10 @@
     payment_time, send_time, end_time, close_time, create_time, update_time
     from neuedu_order
   </select>
+
+
+
+
+
+
 </mapper>

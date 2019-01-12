@@ -1,9 +1,10 @@
-package com.neuedu.service;
+package com.neuedu.service.impl;
 
 import com.neuedu.common.Const;
 import com.neuedu.common.ServerResponse;
 import com.neuedu.dao.UserInfoMapper;
 import com.neuedu.pojo.UserInfo;
+import com.neuedu.service.IUserService;
 import com.neuedu.utils.MD5Utils;
 import com.neuedu.utils.TokenCache;
 import org.springframework.beans.factory.annotation.Autowired;

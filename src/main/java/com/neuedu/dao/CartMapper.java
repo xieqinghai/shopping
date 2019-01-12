@@ -85,6 +85,16 @@ public interface CartMapper {
      * */
     int get_cart_product_count(Integer userId);
 
+    /**
+     * 查询购物车中用户已选中的商品
+     * @Param userId
+     * */
+    List<Cart> findCartListByUserIdAndChecked(Integer userId);
+
+    /**
+     * 批量删除购物车商品
+     * */
+    int batchDelete(List<Cart> cartLIst);
 
 
 }

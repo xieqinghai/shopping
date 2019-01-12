@@ -1,12 +1,12 @@
-package com.neuedu.service;
+package com.neuedu.service.impl;
 
-import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.google.common.collect.Maps;
 import com.neuedu.common.ServerResponse;
 import com.neuedu.dao.ShippingMapper;
 import com.neuedu.pojo.Shipping;
+import com.neuedu.service.IAddressService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

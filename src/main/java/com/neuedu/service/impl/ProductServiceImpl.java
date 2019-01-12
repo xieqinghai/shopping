@@ -1,4 +1,4 @@
-package com.neuedu.service;
+package com.neuedu.service.impl;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
@@ -11,6 +11,8 @@ import com.neuedu.dao.CategoryMapper;
 import com.neuedu.dao.ProductMapper;
 import com.neuedu.pojo.Category;
 import com.neuedu.pojo.Product;
+import com.neuedu.service.ICategoryService;
+import com.neuedu.service.IProductService;
 import com.neuedu.utils.DateUtils;
 import com.neuedu.utils.FTPUtil;
 import com.neuedu.utils.PropertiesUtils;

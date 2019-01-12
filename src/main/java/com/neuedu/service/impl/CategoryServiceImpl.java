@@ -1,9 +1,10 @@
-package com.neuedu.service;
+package com.neuedu.service.impl;
 
 import com.google.common.collect.Sets;
 import com.neuedu.common.ServerResponse;
 import com.neuedu.dao.CategoryMapper;
 import com.neuedu.pojo.Category;
+import com.neuedu.service.ICategoryService;
 import org.apache.catalina.Server;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
