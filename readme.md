@@ -79,7 +79,7 @@ fail
     商品上下架
     增加商品
     更新商品
-####学习目标
+#### 学习目标
     FTP服务的对接
     SpringMVC文件上传
     流读取Properties配置文件
@@ -93,7 +93,7 @@ fail
     POJO、VO 
       :BO->business object 业务逻辑层实体类
       :VO->view object 视图层实体类,业务较复杂POJO不能满足向前端显示要求,就需要在VO里创建实体类
-   #### 企业级开发都会有:图片服务器 数据库服务器 单独业务逻辑服务器  
+#### 企业级开发都会有:图片服务器 数据库服务器 单独业务逻辑服务器  
 ## 购物车模块
     要用: BigDecimal 的字符串类型构造方法
     BigDecimal bigDecimal = new BigDecimal("0.05");

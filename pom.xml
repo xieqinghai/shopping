@@ -175,11 +175,12 @@
             <artifactId>core</artifactId>
             <version>2.1</version>
         </dependency>
-        <!--<dependency>
-            <groupId>com.google.code.gson</groupId>
-            <artifactId>gson</artifactId>
-            <version>2.3.1</version>
-        </dependency>-->
+        <!-- 曾被注释掉 -->
+        <!--<dependency>-->
+            <!--<groupId>com.google.code.gson</groupId>-->
+            <!--<artifactId>gson</artifactId>-->
+            <!--<version>2.3.1</version>-->
+        <!--</dependency>-->
         <dependency>
             <groupId>org.hamcrest</groupId>
             <artifactId>hamcrest-core</artifactId>
@@ -233,6 +234,7 @@
 
 
 
+
     </dependencies>
 
     <build>
@@ -275,6 +277,22 @@
                     </executable>
                 </configuration>
             </plugin>
+
+            <!-- 本地jar包问题 -->
+            <!-- maven的核心插件之-complier插件默认只支持编译java1.4,因此需要加上支持高版本jre的配置,-->
+            <!-- <groupId>org.apache.maven.plugins</groupId> -->
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                    <encoding>UTF-8</encoding>
+                    <compilerArguments>
+                        <extdirs>${project.basedir}/src/main/resources/lib</extdirs>
+                    </compilerArguments>
+                </configuration>
+            </plugin>
+
 
         </plugins>
     </build>
