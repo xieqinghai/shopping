@@ -34,7 +34,9 @@ public class UploadController {
     @ResponseBody
     public ServerResponse upload2(@RequestParam(value="upload_file",required = false) MultipartFile file) {
 
-        String path = "D:\\ftpfile";
+        //   String path = "D:\\ftpfile";
+        //  /tmp/tomcat.4049254527875428741.8080/work/Tomcat/localhost/ROOT/image
+        String path = "/tmp/tomcat.4049254527875428741.8080/work/Tomcat/localhost/ROOT/image";
         return productService.upload(file,path);
 
     }
