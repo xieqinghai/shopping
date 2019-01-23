@@ -65,7 +65,6 @@ public class Category {
      * This method returns the value of the database column neuedu_category.id
      *
      * @return the value of neuedu_category.id
-     *
      * @mbggenerated
      */
     public Integer getId() {
@@ -77,7 +76,6 @@ public class Category {
      * This method sets the value of the database column neuedu_category.id
      *
      * @param id the value for neuedu_category.id
-     *
      * @mbggenerated
      */
     public void setId(Integer id) {
@@ -89,7 +87,6 @@ public class Category {
      * This method returns the value of the database column neuedu_category.parent_id
      *
      * @return the value of neuedu_category.parent_id
-     *
      * @mbggenerated
      */
     public Integer getParentId() {
@@ -101,7 +98,6 @@ public class Category {
      * This method sets the value of the database column neuedu_category.parent_id
      *
      * @param parentId the value for neuedu_category.parent_id
-     *
      * @mbggenerated
      */
     public void setParentId(Integer parentId) {
@@ -113,7 +109,6 @@ public class Category {
      * This method returns the value of the database column neuedu_category.name
      *
      * @return the value of neuedu_category.name
-     *
      * @mbggenerated
      */
     public String getName() {
@@ -125,7 +120,6 @@ public class Category {
      * This method sets the value of the database column neuedu_category.name
      *
      * @param name the value for neuedu_category.name
-     *
      * @mbggenerated
      */
     public void setName(String name) {
@@ -137,7 +131,6 @@ public class Category {
      * This method returns the value of the database column neuedu_category.status
      *
      * @return the value of neuedu_category.status
-     *
      * @mbggenerated
      */
     public Integer getStatus() {
@@ -149,7 +142,6 @@ public class Category {
      * This method sets the value of the database column neuedu_category.status
      *
      * @param status the value for neuedu_category.status
-     *
      * @mbggenerated
      */
     public void setStatus(Integer status) {
@@ -161,7 +153,6 @@ public class Category {
      * This method returns the value of the database column neuedu_category.sort_order
      *
      * @return the value of neuedu_category.sort_order
-     *
      * @mbggenerated
      */
     public Integer getSortOrder() {
@@ -173,7 +164,6 @@ public class Category {
      * This method sets the value of the database column neuedu_category.sort_order
      *
      * @param sortOrder the value for neuedu_category.sort_order
-     *
      * @mbggenerated
      */
     public void setSortOrder(Integer sortOrder) {
@@ -185,7 +175,6 @@ public class Category {
      * This method returns the value of the database column neuedu_category.create_time
      *
      * @return the value of neuedu_category.create_time
-     *
      * @mbggenerated
      */
     public Date getCreateTime() {
@@ -197,7 +186,6 @@ public class Category {
      * This method sets the value of the database column neuedu_category.create_time
      *
      * @param createTime the value for neuedu_category.create_time
-     *
      * @mbggenerated
      */
     public void setCreateTime(Date createTime) {
@@ -209,7 +197,6 @@ public class Category {
      * This method returns the value of the database column neuedu_category.update_time
      *
      * @return the value of neuedu_category.update_time
-     *
      * @mbggenerated
      */
     public Date getUpdateTime() {
@@ -221,7 +208,6 @@ public class Category {
      * This method sets the value of the database column neuedu_category.update_time
      *
      * @param updateTime the value for neuedu_category.update_time
-     *
      * @mbggenerated
      */
     public void setUpdateTime(Date updateTime) {
@@ -230,7 +216,7 @@ public class Category {
 
     /**
      * 重写hashCode和equals方法, 为了判断两个对象是否相等
-     * */
+     */
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

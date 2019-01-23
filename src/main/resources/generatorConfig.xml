@@ -37,21 +37,21 @@
 
         <!-- 根据表名与字段创建对应的实体类 -->
         <table  tableName="neuedu_user" domainObjectName="UserInfo" enableCountByExample="false" enableDeleteByExample="false"
-                enableSelectByExample="false" enableUpdateByExample="false"/>
+        enableSelectByExample="false" enableUpdateByExample="false"/>
         <table  tableName="neuedu_category" domainObjectName="Category" enableCountByExample="false" enableDeleteByExample="false"
-                enableSelectByExample="false" enableUpdateByExample="false"/>
+        enableSelectByExample="false" enableUpdateByExample="false"/>
         <table  tableName="neuedu_product" domainObjectName="Product" enableCountByExample="false" enableDeleteByExample="false"
-                enableSelectByExample="false" enableUpdateByExample="false"/>
+        enableSelectByExample="false" enableUpdateByExample="false"/>
         <table  tableName="neuedu_cart" domainObjectName="Cart" enableCountByExample="false" enableDeleteByExample="false"
-                enableSelectByExample="false" enableUpdateByExample="false"/>
+        enableSelectByExample="false" enableUpdateByExample="false"/>
         <table  tableName="neuedu_order" domainObjectName="Order" enableCountByExample="false" enableDeleteByExample="false"
-                enableSelectByExample="false" enableUpdateByExample="false"/>
+        enableSelectByExample="false" enableUpdateByExample="false"/>
         <table  tableName="neuedu_order_item" domainObjectName="OrderItem" enableCountByExample="false" enableDeleteByExample="false"
-                enableSelectByExample="false" enableUpdateByExample="false"/>
+        enableSelectByExample="false" enableUpdateByExample="false"/>
         <table  tableName="neuedu_payinfo" domainObjectName="PayInfo" enableCountByExample="false" enableDeleteByExample="false"
-                enableSelectByExample="false" enableUpdateByExample="false"/>
+        enableSelectByExample="false" enableUpdateByExample="false"/>
         <table  tableName="neuedu_shipping" domainObjectName="Shipping" enableCountByExample="false" enableDeleteByExample="false"
-                enableSelectByExample="false" enableUpdateByExample="false"/>
+        enableSelectByExample="false" enableUpdateByExample="false"/>
 
     </context>
 </generatorConfiguration>

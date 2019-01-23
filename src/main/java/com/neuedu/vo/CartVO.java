@@ -5,7 +5,7 @@ import java.util.List;
 
 /**
  * 购物车实体类CartVO
- * */
+ */
 public class CartVO {
 
     //购物信息集合

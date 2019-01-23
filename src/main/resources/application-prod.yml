@@ -1,4 +1,3 @@
-
 # 配置mysql的驱动包的位置
 db.mysql.location: C:/Users/Administrator/.m2/repository/mysql/mysql-connector-java/5.1.47/mysql-connector-java-5.1.47.jar
 
@@ -35,3 +34,26 @@ pagehelper.params: countSql
 ftp.server.ip: 39.105.149.25
 ftp.server.user: ftpuser
 ftp.server.password: 123456
+
+
+# 订单关闭时间 1小时
+close.order.time: 1
+
+#####redis配置开始###########
+### 最大连接数
+redis.max.total: 20
+### 最大空闲数
+redis.max.idle: 10
+### 最小空闲数
+redis.min.idle: 2
+### ip
+redis.ip: 39.105.149.25
+### port
+redis.port: 5379
+#在获取实例时,校验实例是否有效
+redis.test.borrow: true
+#在把jedis实例放回连接池时,校验实例是否有效
+redis.test.return: true
+# 密码
+redis.password: 123456
+####redis配置结束###############

@@ -104,7 +104,6 @@ public class Shipping {
      * This method returns the value of the database column neuedu_shipping.id
      *
      * @return the value of neuedu_shipping.id
-     *
      * @mbggenerated
      */
     public Integer getId() {
@@ -116,7 +115,6 @@ public class Shipping {
      * This method sets the value of the database column neuedu_shipping.id
      *
      * @param id the value for neuedu_shipping.id
-     *
      * @mbggenerated
      */
     public void setId(Integer id) {
@@ -128,7 +126,6 @@ public class Shipping {
      * This method returns the value of the database column neuedu_shipping.user_id
      *
      * @return the value of neuedu_shipping.user_id
-     *
      * @mbggenerated
      */
     public Integer getUserId() {
@@ -140,7 +137,6 @@ public class Shipping {
      * This method sets the value of the database column neuedu_shipping.user_id
      *
      * @param userId the value for neuedu_shipping.user_id
-     *
      * @mbggenerated
      */
     public void setUserId(Integer userId) {
@@ -152,7 +148,6 @@ public class Shipping {
      * This method returns the value of the database column neuedu_shipping.receiver_name
      *
      * @return the value of neuedu_shipping.receiver_name
-     *
      * @mbggenerated
      */
     public String getReceiverName() {
@@ -164,7 +159,6 @@ public class Shipping {
      * This method sets the value of the database column neuedu_shipping.receiver_name
      *
      * @param receiverName the value for neuedu_shipping.receiver_name
-     *
      * @mbggenerated
      */
     public void setReceiverName(String receiverName) {
@@ -176,7 +170,6 @@ public class Shipping {
      * This method returns the value of the database column neuedu_shipping.receiver_phone
      *
      * @return the value of neuedu_shipping.receiver_phone
-     *
      * @mbggenerated
      */
     public String getReceiverPhone() {
@@ -188,7 +181,6 @@ public class Shipping {
      * This method sets the value of the database column neuedu_shipping.receiver_phone
      *
      * @param receiverPhone the value for neuedu_shipping.receiver_phone
-     *
      * @mbggenerated
      */
     public void setReceiverPhone(String receiverPhone) {
@@ -200,7 +192,6 @@ public class Shipping {
      * This method returns the value of the database column neuedu_shipping.receiver_mobile
      *
      * @return the value of neuedu_shipping.receiver_mobile
-     *
      * @mbggenerated
      */
     public String getReceiverMobile() {
@@ -212,7 +203,6 @@ public class Shipping {
      * This method sets the value of the database column neuedu_shipping.receiver_mobile
      *
      * @param receiverMobile the value for neuedu_shipping.receiver_mobile
-     *
      * @mbggenerated
      */
     public void setReceiverMobile(String receiverMobile) {
@@ -224,7 +214,6 @@ public class Shipping {
      * This method returns the value of the database column neuedu_shipping.receiver_province
      *
      * @return the value of neuedu_shipping.receiver_province
-     *
      * @mbggenerated
      */
     public String getReceiverProvince() {
@@ -236,7 +225,6 @@ public class Shipping {
      * This method sets the value of the database column neuedu_shipping.receiver_province
      *
      * @param receiverProvince the value for neuedu_shipping.receiver_province
-     *
      * @mbggenerated
      */
     public void setReceiverProvince(String receiverProvince) {
@@ -248,7 +236,6 @@ public class Shipping {
      * This method returns the value of the database column neuedu_shipping.receiver_city
      *
      * @return the value of neuedu_shipping.receiver_city
-     *
      * @mbggenerated
      */
     public String getReceiverCity() {
@@ -260,7 +247,6 @@ public class Shipping {
      * This method sets the value of the database column neuedu_shipping.receiver_city
      *
      * @param receiverCity the value for neuedu_shipping.receiver_city
-     *
      * @mbggenerated
      */
     public void setReceiverCity(String receiverCity) {
@@ -272,7 +258,6 @@ public class Shipping {
      * This method returns the value of the database column neuedu_shipping.receiver_district
      *
      * @return the value of neuedu_shipping.receiver_district
-     *
      * @mbggenerated
      */
     public String getReceiverDistrict() {
@@ -284,7 +269,6 @@ public class Shipping {
      * This method sets the value of the database column neuedu_shipping.receiver_district
      *
      * @param receiverDistrict the value for neuedu_shipping.receiver_district
-     *
      * @mbggenerated
      */
     public void setReceiverDistrict(String receiverDistrict) {
@@ -296,7 +280,6 @@ public class Shipping {
      * This method returns the value of the database column neuedu_shipping.receiver_address
      *
      * @return the value of neuedu_shipping.receiver_address
-     *
      * @mbggenerated
      */
     public String getReceiverAddress() {
@@ -308,7 +291,6 @@ public class Shipping {
      * This method sets the value of the database column neuedu_shipping.receiver_address
      *
      * @param receiverAddress the value for neuedu_shipping.receiver_address
-     *
      * @mbggenerated
      */
     public void setReceiverAddress(String receiverAddress) {
@@ -320,7 +302,6 @@ public class Shipping {
      * This method returns the value of the database column neuedu_shipping.receiver_zip
      *
      * @return the value of neuedu_shipping.receiver_zip
-     *
      * @mbggenerated
      */
     public String getReceiverZip() {
@@ -332,7 +313,6 @@ public class Shipping {
      * This method sets the value of the database column neuedu_shipping.receiver_zip
      *
      * @param receiverZip the value for neuedu_shipping.receiver_zip
-     *
      * @mbggenerated
      */
     public void setReceiverZip(String receiverZip) {
@@ -344,7 +324,6 @@ public class Shipping {
      * This method returns the value of the database column neuedu_shipping.create_time
      *
      * @return the value of neuedu_shipping.create_time
-     *
      * @mbggenerated
      */
     public Date getCreateTime() {
@@ -356,7 +335,6 @@ public class Shipping {
      * This method sets the value of the database column neuedu_shipping.create_time
      *
      * @param createTime the value for neuedu_shipping.create_time
-     *
      * @mbggenerated
      */
     public void setCreateTime(Date createTime) {
@@ -368,7 +346,6 @@ public class Shipping {
      * This method returns the value of the database column neuedu_shipping.update_time
      *
      * @return the value of neuedu_shipping.update_time
-     *
      * @mbggenerated
      */
     public Date getUpdateTime() {
@@ -380,7 +357,6 @@ public class Shipping {
      * This method sets the value of the database column neuedu_shipping.update_time
      *
      * @param updateTime the value for neuedu_shipping.update_time
-     *
      * @mbggenerated
      */
     public void setUpdateTime(Date updateTime) {

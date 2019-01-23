@@ -10,7 +10,7 @@ public class Test {
         double d1 = 0.5;
 
         BigDecimal d2 = new BigDecimal(0.7);
-        BigDecimal add = BigDecimalUtils.add(d2.intValue(),d1);
+        BigDecimal add = BigDecimalUtils.add(d2.intValue(), d1);
         System.out.println(d2.intValue());
         System.out.println(add);
     }

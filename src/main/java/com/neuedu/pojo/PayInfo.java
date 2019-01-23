@@ -72,7 +72,6 @@ public class PayInfo {
      * This method returns the value of the database column neuedu_payinfo.id
      *
      * @return the value of neuedu_payinfo.id
-     *
      * @mbggenerated
      */
     public Integer getId() {
@@ -84,7 +83,6 @@ public class PayInfo {
      * This method sets the value of the database column neuedu_payinfo.id
      *
      * @param id the value for neuedu_payinfo.id
-     *
      * @mbggenerated
      */
     public void setId(Integer id) {
@@ -96,7 +94,6 @@ public class PayInfo {
      * This method returns the value of the database column neuedu_payinfo.user_id
      *
      * @return the value of neuedu_payinfo.user_id
-     *
      * @mbggenerated
      */
     public Integer getUserId() {
@@ -108,7 +105,6 @@ public class PayInfo {
      * This method sets the value of the database column neuedu_payinfo.user_id
      *
      * @param userId the value for neuedu_payinfo.user_id
-     *
      * @mbggenerated
      */
     public void setUserId(Integer userId) {
@@ -120,7 +116,6 @@ public class PayInfo {
      * This method returns the value of the database column neuedu_payinfo.order_no
      *
      * @return the value of neuedu_payinfo.order_no
-     *
      * @mbggenerated
      */
     public Long getOrderNo() {
@@ -132,7 +127,6 @@ public class PayInfo {
      * This method sets the value of the database column neuedu_payinfo.order_no
      *
      * @param orderNo the value for neuedu_payinfo.order_no
-     *
      * @mbggenerated
      */
     public void setOrderNo(Long orderNo) {
@@ -144,7 +138,6 @@ public class PayInfo {
      * This method returns the value of the database column neuedu_payinfo.pay_platform
      *
      * @return the value of neuedu_payinfo.pay_platform
-     *
      * @mbggenerated
      */
     public Integer getPayPlatform() {
@@ -156,7 +149,6 @@ public class PayInfo {
      * This method sets the value of the database column neuedu_payinfo.pay_platform
      *
      * @param payPlatform the value for neuedu_payinfo.pay_platform
-     *
      * @mbggenerated
      */
     public void setPayPlatform(Integer payPlatform) {
@@ -168,7 +160,6 @@ public class PayInfo {
      * This method returns the value of the database column neuedu_payinfo.platform_number
      *
      * @return the value of neuedu_payinfo.platform_number
-     *
      * @mbggenerated
      */
     public String getPlatformNumber() {
@@ -180,7 +171,6 @@ public class PayInfo {
      * This method sets the value of the database column neuedu_payinfo.platform_number
      *
      * @param platformNumber the value for neuedu_payinfo.platform_number
-     *
      * @mbggenerated
      */
     public void setPlatformNumber(String platformNumber) {
@@ -192,7 +182,6 @@ public class PayInfo {
      * This method returns the value of the database column neuedu_payinfo.platform_status
      *
      * @return the value of neuedu_payinfo.platform_status
-     *
      * @mbggenerated
      */
     public String getPlatformStatus() {
@@ -204,7 +193,6 @@ public class PayInfo {
      * This method sets the value of the database column neuedu_payinfo.platform_status
      *
      * @param platformStatus the value for neuedu_payinfo.platform_status
-     *
      * @mbggenerated
      */
     public void setPlatformStatus(String platformStatus) {
@@ -216,7 +204,6 @@ public class PayInfo {
      * This method returns the value of the database column neuedu_payinfo.create_time
      *
      * @return the value of neuedu_payinfo.create_time
-     *
      * @mbggenerated
      */
     public Date getCreateTime() {
@@ -228,7 +215,6 @@ public class PayInfo {
      * This method sets the value of the database column neuedu_payinfo.create_time
      *
      * @param createTime the value for neuedu_payinfo.create_time
-     *
      * @mbggenerated
      */
     public void setCreateTime(Date createTime) {
@@ -240,7 +226,6 @@ public class PayInfo {
      * This method returns the value of the database column neuedu_payinfo.update_time
      *
      * @return the value of neuedu_payinfo.update_time
-     *
      * @mbggenerated
      */
     public Date getUpdateTime() {
@@ -252,7 +237,6 @@ public class PayInfo {
      * This method sets the value of the database column neuedu_payinfo.update_time
      *
      * @param updateTime the value for neuedu_payinfo.update_time
-     *
      * @mbggenerated
      */
     public void setUpdateTime(Date updateTime) {

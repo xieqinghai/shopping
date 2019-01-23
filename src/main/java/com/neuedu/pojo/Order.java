@@ -121,7 +121,6 @@ public class Order {
      * This method returns the value of the database column neuedu_order.id
      *
      * @return the value of neuedu_order.id
-     *
      * @mbggenerated
      */
     public Integer getId() {
@@ -133,7 +132,6 @@ public class Order {
      * This method sets the value of the database column neuedu_order.id
      *
      * @param id the value for neuedu_order.id
-     *
      * @mbggenerated
      */
     public void setId(Integer id) {
@@ -145,7 +143,6 @@ public class Order {
      * This method returns the value of the database column neuedu_order.user_id
      *
      * @return the value of neuedu_order.user_id
-     *
      * @mbggenerated
      */
     public Integer getUserId() {
@@ -157,7 +154,6 @@ public class Order {
      * This method sets the value of the database column neuedu_order.user_id
      *
      * @param userId the value for neuedu_order.user_id
-     *
      * @mbggenerated
      */
     public void setUserId(Integer userId) {
@@ -169,7 +165,6 @@ public class Order {
      * This method returns the value of the database column neuedu_order.order_no
      *
      * @return the value of neuedu_order.order_no
-     *
      * @mbggenerated
      */
     public Long getOrderNo() {
@@ -181,7 +176,6 @@ public class Order {
      * This method sets the value of the database column neuedu_order.order_no
      *
      * @param orderNo the value for neuedu_order.order_no
-     *
      * @mbggenerated
      */
     public void setOrderNo(Long orderNo) {
@@ -193,7 +187,6 @@ public class Order {
      * This method returns the value of the database column neuedu_order.shipping_id
      *
      * @return the value of neuedu_order.shipping_id
-     *
      * @mbggenerated
      */
     public Integer getShippingId() {
@@ -205,7 +198,6 @@ public class Order {
      * This method sets the value of the database column neuedu_order.shipping_id
      *
      * @param shippingId the value for neuedu_order.shipping_id
-     *
      * @mbggenerated
      */
     public void setShippingId(Integer shippingId) {
@@ -217,7 +209,6 @@ public class Order {
      * This method returns the value of the database column neuedu_order.payment
      *
      * @return the value of neuedu_order.payment
-     *
      * @mbggenerated
      */
     public BigDecimal getPayment() {
@@ -229,7 +220,6 @@ public class Order {
      * This method sets the value of the database column neuedu_order.payment
      *
      * @param payment the value for neuedu_order.payment
-     *
      * @mbggenerated
      */
     public void setPayment(BigDecimal payment) {
@@ -241,7 +231,6 @@ public class Order {
      * This method returns the value of the database column neuedu_order.payment_type
      *
      * @return the value of neuedu_order.payment_type
-     *
      * @mbggenerated
      */
     public Integer getPaymentType() {
@@ -253,7 +242,6 @@ public class Order {
      * This method sets the value of the database column neuedu_order.payment_type
      *
      * @param paymentType the value for neuedu_order.payment_type
-     *
      * @mbggenerated
      */
     public void setPaymentType(Integer paymentType) {
@@ -265,7 +253,6 @@ public class Order {
      * This method returns the value of the database column neuedu_order.postage
      *
      * @return the value of neuedu_order.postage
-     *
      * @mbggenerated
      */
     public Integer getPostage() {
@@ -277,7 +264,6 @@ public class Order {
      * This method sets the value of the database column neuedu_order.postage
      *
      * @param postage the value for neuedu_order.postage
-     *
      * @mbggenerated
      */
     public void setPostage(Integer postage) {
@@ -289,7 +275,6 @@ public class Order {
      * This method returns the value of the database column neuedu_order.status
      *
      * @return the value of neuedu_order.status
-     *
      * @mbggenerated
      */
     public Integer getStatus() {
@@ -301,7 +286,6 @@ public class Order {
      * This method sets the value of the database column neuedu_order.status
      *
      * @param status the value for neuedu_order.status
-     *
      * @mbggenerated
      */
     public void setStatus(Integer status) {
@@ -313,7 +297,6 @@ public class Order {
      * This method returns the value of the database column neuedu_order.payment_time
      *
      * @return the value of neuedu_order.payment_time
-     *
      * @mbggenerated
      */
     public Date getPaymentTime() {
@@ -325,7 +308,6 @@ public class Order {
      * This method sets the value of the database column neuedu_order.payment_time
      *
      * @param paymentTime the value for neuedu_order.payment_time
-     *
      * @mbggenerated
      */
     public void setPaymentTime(Date paymentTime) {
@@ -337,7 +319,6 @@ public class Order {
      * This method returns the value of the database column neuedu_order.send_time
      *
      * @return the value of neuedu_order.send_time
-     *
      * @mbggenerated
      */
     public Date getSendTime() {
@@ -349,7 +330,6 @@ public class Order {
      * This method sets the value of the database column neuedu_order.send_time
      *
      * @param sendTime the value for neuedu_order.send_time
-     *
      * @mbggenerated
      */
     public void setSendTime(Date sendTime) {
@@ -361,7 +341,6 @@ public class Order {
      * This method returns the value of the database column neuedu_order.end_time
      *
      * @return the value of neuedu_order.end_time
-     *
      * @mbggenerated
      */
     public Date getEndTime() {
@@ -373,7 +352,6 @@ public class Order {
      * This method sets the value of the database column neuedu_order.end_time
      *
      * @param endTime the value for neuedu_order.end_time
-     *
      * @mbggenerated
      */
     public void setEndTime(Date endTime) {
@@ -385,7 +363,6 @@ public class Order {
      * This method returns the value of the database column neuedu_order.close_time
      *
      * @return the value of neuedu_order.close_time
-     *
      * @mbggenerated
      */
     public Date getCloseTime() {
@@ -397,7 +374,6 @@ public class Order {
      * This method sets the value of the database column neuedu_order.close_time
      *
      * @param closeTime the value for neuedu_order.close_time
-     *
      * @mbggenerated
      */
     public void setCloseTime(Date closeTime) {
@@ -409,7 +385,6 @@ public class Order {
      * This method returns the value of the database column neuedu_order.create_time
      *
      * @return the value of neuedu_order.create_time
-     *
      * @mbggenerated
      */
     public Date getCreateTime() {
@@ -421,7 +396,6 @@ public class Order {
      * This method sets the value of the database column neuedu_order.create_time
      *
      * @param createTime the value for neuedu_order.create_time
-     *
      * @mbggenerated
      */
     public void setCreateTime(Date createTime) {
@@ -433,7 +407,6 @@ public class Order {
      * This method returns the value of the database column neuedu_order.update_time
      *
      * @return the value of neuedu_order.update_time
-     *
      * @mbggenerated
      */
     public Date getUpdateTime() {
@@ -445,7 +418,6 @@ public class Order {
      * This method sets the value of the database column neuedu_order.update_time
      *
      * @param updateTime the value for neuedu_order.update_time
-     *
      * @mbggenerated
      */
     public void setUpdateTime(Date updateTime) {

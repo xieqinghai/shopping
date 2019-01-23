@@ -97,7 +97,6 @@ public class OrderItem {
      * This method returns the value of the database column neuedu_order_item.id
      *
      * @return the value of neuedu_order_item.id
-     *
      * @mbggenerated
      */
     public Integer getId() {
@@ -109,7 +108,6 @@ public class OrderItem {
      * This method sets the value of the database column neuedu_order_item.id
      *
      * @param id the value for neuedu_order_item.id
-     *
      * @mbggenerated
      */
     public void setId(Integer id) {
@@ -121,7 +119,6 @@ public class OrderItem {
      * This method returns the value of the database column neuedu_order_item.user_id
      *
      * @return the value of neuedu_order_item.user_id
-     *
      * @mbggenerated
      */
     public Integer getUserId() {
@@ -133,7 +130,6 @@ public class OrderItem {
      * This method sets the value of the database column neuedu_order_item.user_id
      *
      * @param userId the value for neuedu_order_item.user_id
-     *
      * @mbggenerated
      */
     public void setUserId(Integer userId) {
@@ -145,7 +141,6 @@ public class OrderItem {
      * This method returns the value of the database column neuedu_order_item.order_no
      *
      * @return the value of neuedu_order_item.order_no
-     *
      * @mbggenerated
      */
     public Long getOrderNo() {
@@ -157,7 +152,6 @@ public class OrderItem {
      * This method sets the value of the database column neuedu_order_item.order_no
      *
      * @param orderNo the value for neuedu_order_item.order_no
-     *
      * @mbggenerated
      */
     public void setOrderNo(Long orderNo) {
@@ -169,7 +163,6 @@ public class OrderItem {
      * This method returns the value of the database column neuedu_order_item.product_id
      *
      * @return the value of neuedu_order_item.product_id
-     *
      * @mbggenerated
      */
     public Integer getProductId() {
@@ -181,7 +174,6 @@ public class OrderItem {
      * This method sets the value of the database column neuedu_order_item.product_id
      *
      * @param productId the value for neuedu_order_item.product_id
-     *
      * @mbggenerated
      */
     public void setProductId(Integer productId) {
@@ -193,7 +185,6 @@ public class OrderItem {
      * This method returns the value of the database column neuedu_order_item.product_name
      *
      * @return the value of neuedu_order_item.product_name
-     *
      * @mbggenerated
      */
     public String getProductName() {
@@ -205,7 +196,6 @@ public class OrderItem {
      * This method sets the value of the database column neuedu_order_item.product_name
      *
      * @param productName the value for neuedu_order_item.product_name
-     *
      * @mbggenerated
      */
     public void setProductName(String productName) {
@@ -217,7 +207,6 @@ public class OrderItem {
      * This method returns the value of the database column neuedu_order_item.product_image
      *
      * @return the value of neuedu_order_item.product_image
-     *
      * @mbggenerated
      */
     public String getProductImage() {
@@ -229,7 +218,6 @@ public class OrderItem {
      * This method sets the value of the database column neuedu_order_item.product_image
      *
      * @param productImage the value for neuedu_order_item.product_image
-     *
      * @mbggenerated
      */
     public void setProductImage(String productImage) {
@@ -241,7 +229,6 @@ public class OrderItem {
      * This method returns the value of the database column neuedu_order_item.current_unit_price
      *
      * @return the value of neuedu_order_item.current_unit_price
-     *
      * @mbggenerated
      */
     public BigDecimal getCurrentUnitPrice() {
@@ -253,7 +240,6 @@ public class OrderItem {
      * This method sets the value of the database column neuedu_order_item.current_unit_price
      *
      * @param currentUnitPrice the value for neuedu_order_item.current_unit_price
-     *
      * @mbggenerated
      */
     public void setCurrentUnitPrice(BigDecimal currentUnitPrice) {
@@ -265,7 +251,6 @@ public class OrderItem {
      * This method returns the value of the database column neuedu_order_item.quantity
      *
      * @return the value of neuedu_order_item.quantity
-     *
      * @mbggenerated
      */
     public Integer getQuantity() {
@@ -277,7 +262,6 @@ public class OrderItem {
      * This method sets the value of the database column neuedu_order_item.quantity
      *
      * @param quantity the value for neuedu_order_item.quantity
-     *
      * @mbggenerated
      */
     public void setQuantity(Integer quantity) {
@@ -289,7 +273,6 @@ public class OrderItem {
      * This method returns the value of the database column neuedu_order_item.total_price
      *
      * @return the value of neuedu_order_item.total_price
-     *
      * @mbggenerated
      */
     public BigDecimal getTotalPrice() {
@@ -301,7 +284,6 @@ public class OrderItem {
      * This method sets the value of the database column neuedu_order_item.total_price
      *
      * @param totalPrice the value for neuedu_order_item.total_price
-     *
      * @mbggenerated
      */
     public void setTotalPrice(BigDecimal totalPrice) {
@@ -313,7 +295,6 @@ public class OrderItem {
      * This method returns the value of the database column neuedu_order_item.create_time
      *
      * @return the value of neuedu_order_item.create_time
-     *
      * @mbggenerated
      */
     public Date getCreateTime() {
@@ -325,7 +306,6 @@ public class OrderItem {
      * This method sets the value of the database column neuedu_order_item.create_time
      *
      * @param createTime the value for neuedu_order_item.create_time
-     *
      * @mbggenerated
      */
     public void setCreateTime(Date createTime) {
@@ -337,7 +317,6 @@ public class OrderItem {
      * This method returns the value of the database column neuedu_order_item.update_time
      *
      * @return the value of neuedu_order_item.update_time
-     *
      * @mbggenerated
      */
     public Date getUpdateTime() {
@@ -349,7 +328,6 @@ public class OrderItem {
      * This method sets the value of the database column neuedu_order_item.update_time
      *
      * @param updateTime the value for neuedu_order_item.update_time
-     *
      * @mbggenerated
      */
     public void setUpdateTime(Date updateTime) {

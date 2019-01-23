@@ -4,7 +4,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
 /**
- *
  * 响应前端的高复用对象
  */
 @JsonSerialize(include = JsonSerialize.Inclusion.NON_NULL)
@@ -36,62 +35,61 @@ public class ServerResponse<T> {
 
     /**
      * 判断接口是否访问成功
-     * */
+     */
     @JsonIgnore
     public boolean isSuccess() {
         return this.status == ResponseCode.SUCESS;
     }
 
 
-
     /**
      * {"status":0}
-     * */
+     */
     public static ServerResponse createServerResponseBySuccess() {
         return new ServerResponse(ResponseCode.SUCESS);
     }
 
     /**
      * {"status":0,"msg":"aaa"}
-     * */
+     */
     public static ServerResponse createServerResponseBySucess(String msg) {
-        return new ServerResponse(ResponseCode.SUCESS,msg);
+        return new ServerResponse(ResponseCode.SUCESS, msg);
     }
 
     /**
      * {"status":0,"msg":"aaa","data":{}} 泛型方法
-     * */
-    public static <T> ServerResponse createServerResponseBySucess(String msg,T data) {
-        return new ServerResponse(ResponseCode.SUCESS,msg,data);
+     */
+    public static <T> ServerResponse createServerResponseBySucess(String msg, T data) {
+        return new ServerResponse(ResponseCode.SUCESS, msg, data);
     }
 
 
     /**
      * "status":1
-     * */
+     */
     public static ServerResponse createServerResponseByError() {
         return new ServerResponse(ResponseCode.ERROR);
     }
 
     /**
      * {"status":custom} 自定义状态码
-     * */
+     */
     public static ServerResponse createServerResponseByError(Integer status) {
         return new ServerResponse(status);
     }
 
     /**
      * {"status":1,"msg":"aaa"} 配置类中拿状态码
-     * */
+     */
     public static ServerResponse createServerResponseByError(String msg) {
-        return new ServerResponse(ResponseCode.ERROR,msg);
+        return new ServerResponse(ResponseCode.ERROR, msg);
     }
 
     /**
      * {"status":custom,"msg":"aaa"} 自定义状态码
-     * */
-    public static ServerResponse createServerResponseByError(Integer status,String msg) {
-        return new ServerResponse(status,msg);
+     */
+    public static ServerResponse createServerResponseByError(Integer status, String msg) {
+        return new ServerResponse(status, msg);
     }
 
 
@@ -118,7 +116,6 @@ public class ServerResponse<T> {
     public void setMsg(String msg) {
         this.msg = msg;
     }
-
 
 
 }

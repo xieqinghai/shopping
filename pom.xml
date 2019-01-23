@@ -36,6 +36,12 @@
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
+        <!-- springaop实现需要依赖 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-aop</artifactId>
+        </dependency>
+
         <!-- 要访问逻辑视图 thymeleaf引擎 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -177,9 +183,9 @@
         </dependency>
         <!-- 曾被注释掉 -->
         <!--<dependency>-->
-            <!--<groupId>com.google.code.gson</groupId>-->
-            <!--<artifactId>gson</artifactId>-->
-            <!--<version>2.3.1</version>-->
+        <!--<groupId>com.google.code.gson</groupId>-->
+        <!--<artifactId>gson</artifactId>-->
+        <!--<version>2.3.1</version>-->
         <!--</dependency>-->
         <dependency>
             <groupId>org.hamcrest</groupId>
@@ -231,8 +237,6 @@
             <artifactId>qiniu-java-sdk</artifactId>
             <version>[7.2.0, 7.2.99]</version>
         </dependency>
-
-
 
 
     </dependencies>
@@ -309,13 +313,15 @@
                     <exclude>**/*.properties</exclude>
                 </excludes>
             </resource>
-            <resource>
-                <directory>${basedir}/src/main/resources</directory>
-                <targetPath>BOOT-INF/lib/</targetPath>
-                <includes>
-                    <include>**/*.jar</include>
-                </includes>
-            </resource>
+
+            <!-- 本地开发时需要注释掉,不然项目可能运行不起来 -->
+            <!--<resource>-->
+                <!--<directory>${basedir}/src/main/resources</directory>-->
+                <!--<targetPath>BOOT-INF/lib/</targetPath>-->
+                <!--<includes>-->
+                    <!--<include>**/*.jar</include>-->
+                <!--</includes>-->
+            <!--</resource>-->
         </resources>
     </build>
 

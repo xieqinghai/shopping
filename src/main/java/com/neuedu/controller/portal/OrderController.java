@@ -21,7 +21,7 @@ import java.util.Iterator;
 import java.util.Map;
 
 @RestController
-@RequestMapping(value="/order")
+@RequestMapping(value = "/order")
 public class OrderController {
 
     @Autowired
@@ -29,35 +29,35 @@ public class OrderController {
 
     /**
      * 创建订单
-     * */
-    @RequestMapping(value="/create.do")
-    public ServerResponse createOrder(HttpSession session,Integer shippingId) {
+     */
+    @RequestMapping(value = "/create.do")
+    public ServerResponse createOrder(HttpSession session, Integer shippingId) {
         UserInfo userInfo = (UserInfo) session.getAttribute(Const.CURRENTUSER);
-        if(userInfo == null) {
+        if (userInfo == null) {
             return ServerResponse.createServerResponseByError("需要登录");
         }
-        return orderService.createOrder(userInfo.getId(),shippingId);
+        return orderService.createOrder(userInfo.getId(), shippingId);
     }
 
     /**
      * 取消订单
-     * */
-    @RequestMapping(value="/cancle.do")
-    public ServerResponse cancle(HttpSession session,Long orderNo) {
+     */
+    @RequestMapping(value = "/cancle.do")
+    public ServerResponse cancle(HttpSession session, Long orderNo) {
         UserInfo userInfo = (UserInfo) session.getAttribute(Const.CURRENTUSER);
-        if(userInfo == null) {
+        if (userInfo == null) {
             return ServerResponse.createServerResponseByError("需要登录");
         }
-        return orderService.cancle(userInfo.getId(),orderNo);
+        return orderService.cancle(userInfo.getId(), orderNo);
     }
 
     /**
      * 获取购物车里订单的商品信息
-     * */
-    @RequestMapping(value="/get_order_cart_product.do")
+     */
+    @RequestMapping(value = "/get_order_cart_product.do")
     public ServerResponse get_order_cart_product(HttpSession session) {
         UserInfo userInfo = (UserInfo) session.getAttribute(Const.CURRENTUSER);
-        if(userInfo == null) {
+        if (userInfo == null) {
             return ServerResponse.createServerResponseByError("需要登录");
         }
         return orderService.get_order_cart_product(userInfo.getId());
@@ -65,25 +65,25 @@ public class OrderController {
 
     /**
      * 订单List
-     * */
-    @RequestMapping(value="/list.do")
+     */
+    @RequestMapping(value = "/list.do")
     public ServerResponse list(HttpSession session,
-                               @RequestParam(required = false,defaultValue = "1") Integer pageNum,
-                               @RequestParam(required = false,defaultValue = "10") Integer pageSize) {
+                               @RequestParam(required = false, defaultValue = "1") Integer pageNum,
+                               @RequestParam(required = false, defaultValue = "10") Integer pageSize) {
         UserInfo userInfo = (UserInfo) session.getAttribute(Const.CURRENTUSER);
-        if(userInfo == null) {
+        if (userInfo == null) {
             return ServerResponse.createServerResponseByError("需要登录");
         }
-        return orderService.list(userInfo.getId(),pageNum,pageSize);
+        return orderService.list(userInfo.getId(), pageNum, pageSize);
     }
 
     /**
      * 订单详情detail
-     * */
-    @RequestMapping(value="/detail.do")
-    public ServerResponse detail(HttpSession session,Long orderNo) {
+     */
+    @RequestMapping(value = "/detail.do")
+    public ServerResponse detail(HttpSession session, Long orderNo) {
         UserInfo userInfo = (UserInfo) session.getAttribute(Const.CURRENTUSER);
-        if(userInfo == null) {
+        if (userInfo == null) {
             return ServerResponse.createServerResponseByError("需要登录");
         }
         return orderService.detail(orderNo);
@@ -91,41 +91,41 @@ public class OrderController {
 
     /**
      * 支付接口
-     * */
-    @RequestMapping(value="/pay.do")
-    public ServerResponse pay(HttpSession session,Long orderNo) {
+     */
+    @RequestMapping(value = "/pay.do")
+    public ServerResponse pay(HttpSession session, Long orderNo) {
         UserInfo userInfo = (UserInfo) session.getAttribute(Const.CURRENTUSER);
-        if(userInfo == null) {
+        if (userInfo == null) {
             return ServerResponse.createServerResponseByError("需要登录");
         }
-        return orderService.pay(userInfo.getId(),orderNo);
+        return orderService.pay(userInfo.getId(), orderNo);
     }
 
     /**
      * 支付宝服务器回调应用服务器接口
-     * */
-    @RequestMapping(value="/alipay_callback.do")
+     */
+    @RequestMapping(value = "/alipay_callback.do")
     public ServerResponse callback(HttpServletRequest request) {
         System.out.println("======支付宝服务器回调应用服务器接口==========");
-        Map<String,String[]> params = request.getParameterMap();
-        Map<String,String> requestparams = Maps.newHashMap();
+        Map<String, String[]> params = request.getParameterMap();
+        Map<String, String> requestparams = Maps.newHashMap();
 
         Iterator<String> it = params.keySet().iterator();
-        while(it.hasNext()) {
+        while (it.hasNext()) {
             String key = it.next();
             String[] strArr = params.get(key);
             String value = "";
-            for(int i=0;i<strArr.length;i++) {
-                value = (i==strArr.length-1)?value+strArr[i]:value+strArr[i]+",";
+            for (int i = 0; i < strArr.length; i++) {
+                value = (i == strArr.length - 1) ? value + strArr[i] : value + strArr[i] + ",";
             }
-            requestparams.put(key,value);
+            requestparams.put(key, value);
         }
 
         //step1:支付宝验签
         try {
             requestparams.remove("sign_type");
-            Boolean result = AlipaySignature.rsaCheckV2(requestparams, Configs.getAlipayPublicKey(),"utf-8",Configs.getSignType());
-            if(!result) {
+            Boolean result = AlipaySignature.rsaCheckV2(requestparams, Configs.getAlipayPublicKey(), "utf-8", Configs.getSignType());
+            if (!result) {
                 return ServerResponse.createServerResponseByError("非法请求,验证不通过");
             }
             //处理业务逻辑
@@ -139,17 +139,15 @@ public class OrderController {
 
     /**
      * 查询订单的支付状态
-     * */
-    @RequestMapping(value="/query_order_pay_status.do")
-    public ServerResponse query_order_pay_status(HttpSession session,Long orderNo) {
+     */
+    @RequestMapping(value = "/query_order_pay_status.do")
+    public ServerResponse query_order_pay_status(HttpSession session, Long orderNo) {
         UserInfo userInfo = (UserInfo) session.getAttribute(Const.CURRENTUSER);
-        if(userInfo == null) {
+        if (userInfo == null) {
             return ServerResponse.createServerResponseByError("需要登录");
         }
         return orderService.query_order_pay_status(orderNo);
     }
-
-
 
 
 }

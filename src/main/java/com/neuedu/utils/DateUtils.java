@@ -8,15 +8,16 @@ import java.util.Date;
 
 public class DateUtils {
 
-    private static final String STANDARD_FORMAT = "yyyy-MM-dd HH:mm:ss";
+    public static final String STANDARD_FORMAT = "yyyy-MM-dd HH:mm:ss";
 
     /**
      * Date-->String
-     * */
-    public static String dateToStr(Date date,String format) {
+     */
+    public static String dateToStr(Date date, String format) {
         DateTime dateTime = new DateTime(date);
         return dateTime.toString(format);
     }
+
     public static String dateToStr(Date date) {
         DateTime dateTime = new DateTime(date);
         return dateTime.toString(STANDARD_FORMAT);
@@ -24,18 +25,18 @@ public class DateUtils {
 
     /**
      * String -->Date
-     * */
+     */
     public static Date strToDate(String str) {
         DateTimeFormatter dateTimeFormatter = DateTimeFormat.forPattern(STANDARD_FORMAT);
         DateTime dateTime = dateTimeFormatter.parseDateTime(str);
         return dateTime.toDate();
     }
-    public static Date strToDate(String str,String format) {
+
+    public static Date strToDate(String str, String format) {
         DateTimeFormatter dateTimeFormatter = DateTimeFormat.forPattern(format);
         DateTime dateTime = dateTimeFormatter.parseDateTime(str);
         return dateTime.toDate();
     }
-
 
 
 }

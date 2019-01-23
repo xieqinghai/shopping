@@ -21,7 +21,7 @@ public class PropertiesUtils {
 
     /**
      * 读取配置文件的内容
-     * */
+     */
     public static String readByKey(String key) {
         return properties.getProperty(key);
     }

@@ -105,7 +105,6 @@ public class Product {
      * This method returns the value of the database column neuedu_product.id
      *
      * @return the value of neuedu_product.id
-     *
      * @mbggenerated
      */
     public Integer getId() {
@@ -117,7 +116,6 @@ public class Product {
      * This method sets the value of the database column neuedu_product.id
      *
      * @param id the value for neuedu_product.id
-     *
      * @mbggenerated
      */
     public void setId(Integer id) {
@@ -129,7 +127,6 @@ public class Product {
      * This method returns the value of the database column neuedu_product.category_id
      *
      * @return the value of neuedu_product.category_id
-     *
      * @mbggenerated
      */
     public Integer getCategoryId() {
@@ -141,7 +138,6 @@ public class Product {
      * This method sets the value of the database column neuedu_product.category_id
      *
      * @param categoryId the value for neuedu_product.category_id
-     *
      * @mbggenerated
      */
     public void setCategoryId(Integer categoryId) {
@@ -153,7 +149,6 @@ public class Product {
      * This method returns the value of the database column neuedu_product.name
      *
      * @return the value of neuedu_product.name
-     *
      * @mbggenerated
      */
     public String getName() {
@@ -165,7 +160,6 @@ public class Product {
      * This method sets the value of the database column neuedu_product.name
      *
      * @param name the value for neuedu_product.name
-     *
      * @mbggenerated
      */
     public void setName(String name) {
@@ -177,7 +171,6 @@ public class Product {
      * This method returns the value of the database column neuedu_product.subtitle
      *
      * @return the value of neuedu_product.subtitle
-     *
      * @mbggenerated
      */
     public String getSubtitle() {
@@ -189,7 +182,6 @@ public class Product {
      * This method sets the value of the database column neuedu_product.subtitle
      *
      * @param subtitle the value for neuedu_product.subtitle
-     *
      * @mbggenerated
      */
     public void setSubtitle(String subtitle) {
@@ -201,7 +193,6 @@ public class Product {
      * This method returns the value of the database column neuedu_product.main_image
      *
      * @return the value of neuedu_product.main_image
-     *
      * @mbggenerated
      */
     public String getMainImage() {
@@ -213,7 +204,6 @@ public class Product {
      * This method sets the value of the database column neuedu_product.main_image
      *
      * @param mainImage the value for neuedu_product.main_image
-     *
      * @mbggenerated
      */
     public void setMainImage(String mainImage) {
@@ -225,7 +215,6 @@ public class Product {
      * This method returns the value of the database column neuedu_product.price
      *
      * @return the value of neuedu_product.price
-     *
      * @mbggenerated
      */
     public BigDecimal getPrice() {
@@ -237,7 +226,6 @@ public class Product {
      * This method sets the value of the database column neuedu_product.price
      *
      * @param price the value for neuedu_product.price
-     *
      * @mbggenerated
      */
     public void setPrice(BigDecimal price) {
@@ -249,7 +237,6 @@ public class Product {
      * This method returns the value of the database column neuedu_product.stock
      *
      * @return the value of neuedu_product.stock
-     *
      * @mbggenerated
      */
     public Integer getStock() {
@@ -261,7 +248,6 @@ public class Product {
      * This method sets the value of the database column neuedu_product.stock
      *
      * @param stock the value for neuedu_product.stock
-     *
      * @mbggenerated
      */
     public void setStock(Integer stock) {
@@ -273,7 +259,6 @@ public class Product {
      * This method returns the value of the database column neuedu_product.status
      *
      * @return the value of neuedu_product.status
-     *
      * @mbggenerated
      */
     public Integer getStatus() {
@@ -285,7 +270,6 @@ public class Product {
      * This method sets the value of the database column neuedu_product.status
      *
      * @param status the value for neuedu_product.status
-     *
      * @mbggenerated
      */
     public void setStatus(Integer status) {
@@ -297,7 +281,6 @@ public class Product {
      * This method returns the value of the database column neuedu_product.create_time
      *
      * @return the value of neuedu_product.create_time
-     *
      * @mbggenerated
      */
     public Date getCreateTime() {
@@ -309,7 +292,6 @@ public class Product {
      * This method sets the value of the database column neuedu_product.create_time
      *
      * @param createTime the value for neuedu_product.create_time
-     *
      * @mbggenerated
      */
     public void setCreateTime(Date createTime) {
@@ -321,7 +303,6 @@ public class Product {
      * This method returns the value of the database column neuedu_product.update_time
      *
      * @return the value of neuedu_product.update_time
-     *
      * @mbggenerated
      */
     public Date getUpdateTime() {
@@ -333,7 +314,6 @@ public class Product {
      * This method sets the value of the database column neuedu_product.update_time
      *
      * @param updateTime the value for neuedu_product.update_time
-     *
      * @mbggenerated
      */
     public void setUpdateTime(Date updateTime) {
@@ -345,7 +325,6 @@ public class Product {
      * This method returns the value of the database column neuedu_product.sub_images
      *
      * @return the value of neuedu_product.sub_images
-     *
      * @mbggenerated
      */
     public String getSubImages() {
@@ -357,7 +336,6 @@ public class Product {
      * This method sets the value of the database column neuedu_product.sub_images
      *
      * @param subImages the value for neuedu_product.sub_images
-     *
      * @mbggenerated
      */
     public void setSubImages(String subImages) {
@@ -369,7 +347,6 @@ public class Product {
      * This method returns the value of the database column neuedu_product.detail
      *
      * @return the value of neuedu_product.detail
-     *
      * @mbggenerated
      */
     public String getDetail() {
@@ -381,7 +358,6 @@ public class Product {
      * This method sets the value of the database column neuedu_product.detail
      *
      * @param detail the value for neuedu_product.detail
-     *
      * @mbggenerated
      */
     public void setDetail(String detail) {
@@ -391,7 +367,7 @@ public class Product {
 
     /**
      * 以下为新增字段
-     * */
+     */
     private byte isNew;
     private byte isHot;
     private byte isBanner;

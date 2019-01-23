@@ -50,15 +50,16 @@ public interface ShippingMapper {
 
     /**
      * 删除地址
+     *
      * @Param shippingId
      * @Param userId
-     * */
+     */
     int deleteByUserIdAndShippingId(@Param("userId") Integer userId,
                                     @Param("shippingId") Integer shippingId);
 
     /**
      * 更新地址
-     * */
+     */
     int updateBySelectiveKey(Shipping shipping);
 
 

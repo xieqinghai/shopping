@@ -11,7 +11,7 @@ import java.util.Properties;
 public class FTPUtil {
 
     //ip username password
-    private static final String FTPIP=PropertiesUtils.readByKey("ftp.server.ip");
+    private static final String FTPIP = PropertiesUtils.readByKey("ftp.server.ip");
     private static final String FTPUSER = PropertiesUtils.readByKey("ftp.server.user");
     private static final String FTPPASSWORD = PropertiesUtils.readByKey("ftp.server.password");
 
@@ -33,31 +33,31 @@ public class FTPUtil {
 
     /**
      * 图片上传到FTP
-     * */
+     */
     public static boolean uploadFile(List<File> fileList) throws IOException {
 
-        FTPUtil ftpUtil = new FTPUtil(FTPIP,FTPUSER,FTPPASSWORD,21);
+        FTPUtil ftpUtil = new FTPUtil(FTPIP, FTPUSER, FTPPASSWORD, 21);
 
         System.out.println("开始连接FTP服务器...");
         /*将异常抛到业务逻辑层,让业务逻辑去处理异常*/
-        ftpUtil.uploadFile("img",fileList);
+        ftpUtil.uploadFile("img", fileList);
 
         return false;
     }
 
-    public  boolean uploadFile(String remotePath,List<File> fileList) throws IOException {
+    public boolean uploadFile(String remotePath, List<File> fileList) throws IOException {
         FileInputStream fileInputStream = null;
         //连接ftp服务器
-        if(connectFTPServer(ftpIp,ftpUser,ftpPass)) {
+        if (connectFTPServer(ftpIp, ftpUser, ftpPass)) {
             try {
                 ftpClient.changeWorkingDirectory(remotePath);
                 ftpClient.setBufferSize(1024);
                 ftpClient.setControlEncoding("UTF-8");
                 ftpClient.setFileType(FTPClient.BINARY_FILE_TYPE);
                 ftpClient.enterLocalPassiveMode(); //打开别动传输模式
-                for(File file:fileList) {
+                for (File file : fileList) {
                     fileInputStream = new FileInputStream(file);
-                    ftpClient.storeFile(file.getName(),fileInputStream);
+                    ftpClient.storeFile(file.getName(), fileInputStream);
                 }
                 System.out.println("====文件上传成功====");
                 return true;
@@ -74,14 +74,15 @@ public class FTPUtil {
 
     /**
      * 连接ftp服务器
-     * */
+     */
     FTPClient ftpClient = null;
-    public  boolean connectFTPServer(String ip,String user,String password) {
+
+    public boolean connectFTPServer(String ip, String user, String password) {
         ftpClient = new FTPClient();
 
         try {
             ftpClient.connect(ip);
-            return ftpClient.login(user,password);
+            return ftpClient.login(user, password);
         } catch (IOException e) {
             e.printStackTrace();
             System.out.println("连接FTP服务器异常...");

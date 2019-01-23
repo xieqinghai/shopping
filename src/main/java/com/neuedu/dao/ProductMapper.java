@@ -52,22 +52,21 @@ public interface ProductMapper {
 
     /**
      * 更新商品
-     * */
+     */
     int updateProductKeySelective(Product product);
 
     /**
      * 按照productId或productName查询
-     * */
-    List<Product> findProductByProductIdAndProductName(@Param(value="productId") Integer productId,
-                                                       @Param(value="productName") String productName);
+     */
+    List<Product> findProductByProductIdAndProductName(@Param(value = "productId") Integer productId,
+                                                       @Param(value = "productName") String productName);
 
     /**
      * 前台接口-搜索商品
-     * */
+     */
     List<Product> searchProduct(@Param("integerSet") Set<Integer> integerSet,
                                 @Param("keyword") String keyword,
                                 @Param("orderBy") String orderBy);
-
 
 
 }

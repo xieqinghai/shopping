@@ -96,7 +96,6 @@ public class UserInfo {
      * This method returns the value of the database column neuedu_user.id
      *
      * @return the value of neuedu_user.id
-     *
      * @mbggenerated
      */
     public Integer getId() {
@@ -108,7 +107,6 @@ public class UserInfo {
      * This method sets the value of the database column neuedu_user.id
      *
      * @param id the value for neuedu_user.id
-     *
      * @mbggenerated
      */
     public void setId(Integer id) {
@@ -120,7 +118,6 @@ public class UserInfo {
      * This method returns the value of the database column neuedu_user.username
      *
      * @return the value of neuedu_user.username
-     *
      * @mbggenerated
      */
     public String getUsername() {
@@ -132,7 +129,6 @@ public class UserInfo {
      * This method sets the value of the database column neuedu_user.username
      *
      * @param username the value for neuedu_user.username
-     *
      * @mbggenerated
      */
     public void setUsername(String username) {
@@ -144,7 +140,6 @@ public class UserInfo {
      * This method returns the value of the database column neuedu_user.password
      *
      * @return the value of neuedu_user.password
-     *
      * @mbggenerated
      */
     public String getPassword() {
@@ -156,7 +151,6 @@ public class UserInfo {
      * This method sets the value of the database column neuedu_user.password
      *
      * @param password the value for neuedu_user.password
-     *
      * @mbggenerated
      */
     public void setPassword(String password) {
@@ -168,7 +162,6 @@ public class UserInfo {
      * This method returns the value of the database column neuedu_user.email
      *
      * @return the value of neuedu_user.email
-     *
      * @mbggenerated
      */
     public String getEmail() {
@@ -180,7 +173,6 @@ public class UserInfo {
      * This method sets the value of the database column neuedu_user.email
      *
      * @param email the value for neuedu_user.email
-     *
      * @mbggenerated
      */
     public void setEmail(String email) {
@@ -192,7 +184,6 @@ public class UserInfo {
      * This method returns the value of the database column neuedu_user.phone
      *
      * @return the value of neuedu_user.phone
-     *
      * @mbggenerated
      */
     public String getPhone() {
@@ -204,7 +195,6 @@ public class UserInfo {
      * This method sets the value of the database column neuedu_user.phone
      *
      * @param phone the value for neuedu_user.phone
-     *
      * @mbggenerated
      */
     public void setPhone(String phone) {
@@ -216,7 +206,6 @@ public class UserInfo {
      * This method returns the value of the database column neuedu_user.question
      *
      * @return the value of neuedu_user.question
-     *
      * @mbggenerated
      */
     public String getQuestion() {
@@ -228,7 +217,6 @@ public class UserInfo {
      * This method sets the value of the database column neuedu_user.question
      *
      * @param question the value for neuedu_user.question
-     *
      * @mbggenerated
      */
     public void setQuestion(String question) {
@@ -240,7 +228,6 @@ public class UserInfo {
      * This method returns the value of the database column neuedu_user.answer
      *
      * @return the value of neuedu_user.answer
-     *
      * @mbggenerated
      */
     public String getAnswer() {
@@ -252,7 +239,6 @@ public class UserInfo {
      * This method sets the value of the database column neuedu_user.answer
      *
      * @param answer the value for neuedu_user.answer
-     *
      * @mbggenerated
      */
     public void setAnswer(String answer) {
@@ -264,7 +250,6 @@ public class UserInfo {
      * This method returns the value of the database column neuedu_user.role
      *
      * @return the value of neuedu_user.role
-     *
      * @mbggenerated
      */
     public Integer getRole() {
@@ -276,7 +261,6 @@ public class UserInfo {
      * This method sets the value of the database column neuedu_user.role
      *
      * @param role the value for neuedu_user.role
-     *
      * @mbggenerated
      */
     public void setRole(Integer role) {
@@ -288,7 +272,6 @@ public class UserInfo {
      * This method returns the value of the database column neuedu_user.create_time
      *
      * @return the value of neuedu_user.create_time
-     *
      * @mbggenerated
      */
     public Date getCreateTime() {
@@ -300,7 +283,6 @@ public class UserInfo {
      * This method sets the value of the database column neuedu_user.create_time
      *
      * @param createTime the value for neuedu_user.create_time
-     *
      * @mbggenerated
      */
     public void setCreateTime(Date createTime) {
@@ -312,7 +294,6 @@ public class UserInfo {
      * This method returns the value of the database column neuedu_user.update_time
      *
      * @return the value of neuedu_user.update_time
-     *
      * @mbggenerated
      */
     public Date getUpdateTime() {
@@ -324,7 +305,6 @@ public class UserInfo {
      * This method sets the value of the database column neuedu_user.update_time
      *
      * @param updateTime the value for neuedu_user.update_time
-     *
      * @mbggenerated
      */
     public void setUpdateTime(Date updateTime) {
@@ -336,7 +316,6 @@ public class UserInfo {
      * This method returns the value of the database column neuedu_user.ip
      *
      * @return the value of neuedu_user.ip
-     *
      * @mbggenerated
      */
     public String getIp() {
@@ -348,10 +327,26 @@ public class UserInfo {
      * This method sets the value of the database column neuedu_user.ip
      *
      * @param ip the value for neuedu_user.ip
-     *
      * @mbggenerated
      */
     public void setIp(String ip) {
         this.ip = ip == null ? null : ip.trim();
+    }
+
+    @Override
+    public String toString() {
+        return "UserInfo{" +
+                "id=" + id +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", email='" + email + '\'' +
+                ", phone='" + phone + '\'' +
+                ", question='" + question + '\'' +
+                ", answer='" + answer + '\'' +
+                ", role=" + role +
+                ", createTime=" + createTime +
+                ", updateTime=" + updateTime +
+                ", ip='" + ip + '\'' +
+                '}';
     }
 }

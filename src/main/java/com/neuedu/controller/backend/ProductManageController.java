@@ -15,7 +15,7 @@ import javax.servlet.http.HttpSession;
 import java.io.Serializable;
 
 @RestController
-@RequestMapping(value="/manage/product")
+@RequestMapping(value = "/manage/product")
 public class ProductManageController {
 
     @Autowired
@@ -23,90 +23,89 @@ public class ProductManageController {
 
     /**
      * 新增OR更新产品
-     * */
-    @RequestMapping(value="/save.do")
+     */
+    @RequestMapping(value = "/save.do")
     public ServerResponse saveOrUpdate(HttpSession session, Product product) {
         UserInfo userInfo = (UserInfo) session.getAttribute(Const.CURRENTUSER);
-        if(userInfo == null) {
-            return ServerResponse.createServerResponseByError(Const.ResponseCodeEnum.NEAD_LOGIN.getCode(),Const.ResponseCodeEnum.NEAD_LOGIN.getDesc());
+        if (userInfo == null) {
+            return ServerResponse.createServerResponseByError(Const.ResponseCodeEnum.NEAD_LOGIN.getCode(), Const.ResponseCodeEnum.NEAD_LOGIN.getDesc());
         }
         //判断权限
-        if(userInfo.getRole() != Const.RoleEnum.ROLE_ADMIN.getCode()) {
-            return ServerResponse.createServerResponseByError(Const.ResponseCodeEnum.NO_PRIVILEGE.getCode(),Const.ResponseCodeEnum.NO_PRIVILEGE.getDesc());
+        if (userInfo.getRole() != Const.RoleEnum.ROLE_ADMIN.getCode()) {
+            return ServerResponse.createServerResponseByError(Const.ResponseCodeEnum.NO_PRIVILEGE.getCode(), Const.ResponseCodeEnum.NO_PRIVILEGE.getDesc());
         }
         return productService.saveOrUpdate(product);
     }
 
     /**
      * 产品的上下架
-     * */
-    @RequestMapping(value="/set_sale_status.do")
-    public ServerResponse set_sale_status(HttpSession session, Integer productId,Integer status) {
+     */
+    @RequestMapping(value = "/set_sale_status.do")
+    public ServerResponse set_sale_status(HttpSession session, Integer productId, Integer status) {
         UserInfo userInfo = (UserInfo) session.getAttribute(Const.CURRENTUSER);
-        if(userInfo == null) {
-            return ServerResponse.createServerResponseByError(Const.ResponseCodeEnum.NEAD_LOGIN.getCode(),Const.ResponseCodeEnum.NEAD_LOGIN.getDesc());
+        if (userInfo == null) {
+            return ServerResponse.createServerResponseByError(Const.ResponseCodeEnum.NEAD_LOGIN.getCode(), Const.ResponseCodeEnum.NEAD_LOGIN.getDesc());
         }
         //判断权限
-        if(userInfo.getRole() != Const.RoleEnum.ROLE_ADMIN.getCode()) {
-            return ServerResponse.createServerResponseByError(Const.ResponseCodeEnum.NO_PRIVILEGE.getCode(),Const.ResponseCodeEnum.NO_PRIVILEGE.getDesc());
+        if (userInfo.getRole() != Const.RoleEnum.ROLE_ADMIN.getCode()) {
+            return ServerResponse.createServerResponseByError(Const.ResponseCodeEnum.NO_PRIVILEGE.getCode(), Const.ResponseCodeEnum.NO_PRIVILEGE.getDesc());
         }
-        return productService.set_sale_status(productId,status);
+        return productService.set_sale_status(productId, status);
     }
 
     /**
      * 查看商品详情
-     * */
-    @RequestMapping(value="/detail.do")
+     */
+    @RequestMapping(value = "/detail.do")
     public ServerResponse detail(HttpSession session, Integer productId) {
         UserInfo userInfo = (UserInfo) session.getAttribute(Const.CURRENTUSER);
-        if(userInfo == null) {
-            return ServerResponse.createServerResponseByError(Const.ResponseCodeEnum.NEAD_LOGIN.getCode(),Const.ResponseCodeEnum.NEAD_LOGIN.getDesc());
+        if (userInfo == null) {
+            return ServerResponse.createServerResponseByError(Const.ResponseCodeEnum.NEAD_LOGIN.getCode(), Const.ResponseCodeEnum.NEAD_LOGIN.getDesc());
         }
         //判断权限
-        if(userInfo.getRole() != Const.RoleEnum.ROLE_ADMIN.getCode()) {
-            return ServerResponse.createServerResponseByError(Const.ResponseCodeEnum.NO_PRIVILEGE.getCode(),Const.ResponseCodeEnum.NO_PRIVILEGE.getDesc());
+        if (userInfo.getRole() != Const.RoleEnum.ROLE_ADMIN.getCode()) {
+            return ServerResponse.createServerResponseByError(Const.ResponseCodeEnum.NO_PRIVILEGE.getCode(), Const.ResponseCodeEnum.NO_PRIVILEGE.getDesc());
         }
         return productService.detail(productId);
     }
 
     /**
      * 查看商品列表
-     * */
-    @RequestMapping(value="/list.do")
+     */
+    @RequestMapping(value = "/list.do")
     public ServerResponse list(HttpSession session,
-                               @RequestParam(value="pageNum",required=false,defaultValue="1") Integer pageNum,
-                               @RequestParam(value="pageSize",required=false,defaultValue="10") Integer pageSize) {
+                               @RequestParam(value = "pageNum", required = false, defaultValue = "1") Integer pageNum,
+                               @RequestParam(value = "pageSize", required = false, defaultValue = "10") Integer pageSize) {
         UserInfo userInfo = (UserInfo) session.getAttribute(Const.CURRENTUSER);
-        if(userInfo == null) {
-            return ServerResponse.createServerResponseByError(Const.ResponseCodeEnum.NEAD_LOGIN.getCode(),Const.ResponseCodeEnum.NEAD_LOGIN.getDesc());
+        if (userInfo == null) {
+            return ServerResponse.createServerResponseByError(Const.ResponseCodeEnum.NEAD_LOGIN.getCode(), Const.ResponseCodeEnum.NEAD_LOGIN.getDesc());
         }
         //判断权限
-        if(userInfo.getRole() != Const.RoleEnum.ROLE_ADMIN.getCode()) {
-            return ServerResponse.createServerResponseByError(Const.ResponseCodeEnum.NO_PRIVILEGE.getCode(),Const.ResponseCodeEnum.NO_PRIVILEGE.getDesc());
+        if (userInfo.getRole() != Const.RoleEnum.ROLE_ADMIN.getCode()) {
+            return ServerResponse.createServerResponseByError(Const.ResponseCodeEnum.NO_PRIVILEGE.getCode(), Const.ResponseCodeEnum.NO_PRIVILEGE.getDesc());
         }
-        return productService.list(pageNum,pageSize);
+        return productService.list(pageNum, pageSize);
     }
 
     /**
      * 产品搜索
-     * */
-    @RequestMapping(value="/search.do")
+     */
+    @RequestMapping(value = "/search.do")
     public ServerResponse list(HttpSession session,
-                               @RequestParam(value="productId",required=false) Integer productId,
-                               @RequestParam(value="productName",required=false) String productName,
-                               @RequestParam(value="pageNum",required=false,defaultValue="1") Integer pageNum,
-                               @RequestParam(value="pageSize",required=false,defaultValue="10") Integer pageSize) {
+                               @RequestParam(value = "productId", required = false) Integer productId,
+                               @RequestParam(value = "productName", required = false) String productName,
+                               @RequestParam(value = "pageNum", required = false, defaultValue = "1") Integer pageNum,
+                               @RequestParam(value = "pageSize", required = false, defaultValue = "10") Integer pageSize) {
         UserInfo userInfo = (UserInfo) session.getAttribute(Const.CURRENTUSER);
-        if(userInfo == null) {
-            return ServerResponse.createServerResponseByError(Const.ResponseCodeEnum.NEAD_LOGIN.getCode(),Const.ResponseCodeEnum.NEAD_LOGIN.getDesc());
+        if (userInfo == null) {
+            return ServerResponse.createServerResponseByError(Const.ResponseCodeEnum.NEAD_LOGIN.getCode(), Const.ResponseCodeEnum.NEAD_LOGIN.getDesc());
         }
         //判断权限
-        if(userInfo.getRole() != Const.RoleEnum.ROLE_ADMIN.getCode()) {
-            return ServerResponse.createServerResponseByError(Const.ResponseCodeEnum.NO_PRIVILEGE.getCode(),Const.ResponseCodeEnum.NO_PRIVILEGE.getDesc());
+        if (userInfo.getRole() != Const.RoleEnum.ROLE_ADMIN.getCode()) {
+            return ServerResponse.createServerResponseByError(Const.ResponseCodeEnum.NO_PRIVILEGE.getCode(), Const.ResponseCodeEnum.NO_PRIVILEGE.getDesc());
         }
-        return productService.search(productId,productName,pageNum,pageSize);
+        return productService.search(productId, productName, pageNum, pageSize);
     }
-
 
 
 }
