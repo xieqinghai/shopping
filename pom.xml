@@ -315,13 +315,13 @@
             </resource>
 
             <!-- 本地开发时需要注释掉,不然项目可能运行不起来 -->
-            <!--<resource>-->
-                <!--<directory>${basedir}/src/main/resources</directory>-->
-                <!--<targetPath>BOOT-INF/lib/</targetPath>-->
-                <!--<includes>-->
-                    <!--<include>**/*.jar</include>-->
-                <!--</includes>-->
-            <!--</resource>-->
+            <resource>
+                <directory>${basedir}/src/main/resources</directory>
+                <targetPath>BOOT-INF/lib/</targetPath>
+                <includes>
+                    <include>**/*.jar</include>
+                </includes>
+            </resource>
         </resources>
     </build>
 

@@ -38,7 +38,7 @@ public class ServerResponse<T> {
      */
     @JsonIgnore
     public boolean isSuccess() {
-        return this.status == ResponseCode.SUCESS;
+        return this.status == ResponseCode.SUCCESS;
     }
 
 
@@ -46,21 +46,21 @@ public class ServerResponse<T> {
      * {"status":0}
      */
     public static ServerResponse createServerResponseBySuccess() {
-        return new ServerResponse(ResponseCode.SUCESS);
+        return new ServerResponse(ResponseCode.SUCCESS);
     }
 
     /**
      * {"status":0,"msg":"aaa"}
      */
     public static ServerResponse createServerResponseBySucess(String msg) {
-        return new ServerResponse(ResponseCode.SUCESS, msg);
+        return new ServerResponse(ResponseCode.SUCCESS, msg);
     }
 
     /**
      * {"status":0,"msg":"aaa","data":{}} 泛型方法
      */
     public static <T> ServerResponse createServerResponseBySucess(String msg, T data) {
-        return new ServerResponse(ResponseCode.SUCESS, msg, data);
+        return new ServerResponse(ResponseCode.SUCCESS, msg, data);
     }
 
 

@@ -1,4 +1,4 @@
-package com.neuedu.controller.common.scheduler;
+package com.neuedu.schedule;
 
 import com.neuedu.service.IOrderService;
 import com.neuedu.utils.PropertiesUtils;
@@ -21,10 +21,14 @@ public class CloseOrder {
 
     /**
      * 每隔1分钟执行一次
+     * currenttime - createtime >0.5hour
      * */
     @Scheduled(cron="* */1 * * * *")
     public void closeOrder() {
 
+        //step1: time = 计算时间 currenttime-0.5h
+
+        //step2:数据库查询select * from neuedu_order where create_time < time ,在业务层实现
         Integer hour = Integer.parseInt(PropertiesUtils.readByKey("close.order.time")) ;
         String date = com.neuedu.utils.DateUtils.dateToStr(DateUtils.addHours(new Date(),-hour));
 

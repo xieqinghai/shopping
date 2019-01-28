@@ -36,12 +36,16 @@ public class AutoLoginInterceptor implements HandlerInterceptor {
         HandlerMethod handlerMethod = (HandlerMethod)handler;
         String className = handlerMethod.getBean().getClass().getSimpleName();
         String methodName = handlerMethod.getMethod().getName();
-
+        if(className.equals("UserController")&&methodName.equals("loginRestful")){
+            return true;
+        }
 
         HttpSession session = request.getSession();
         UserInfo userInfo = (UserInfo) session.getAttribute(Const.CURRENTUSER);
 
         if(userInfo != null) {//从cookie中获取token信息
+            return true;
+        }
             Cookie[] cookies = request.getCookies();
             if(cookies != null && cookies.length>0) {
                 for(Cookie cookie:cookies) {
@@ -58,9 +62,9 @@ public class AutoLoginInterceptor implements HandlerInterceptor {
                 }
             }
 
-        }
 
-        response.reset(); //先重置response
+
+        response.reset(); //先重置response 防止响应两次
         //防止乱码
         response.setContentType("text/json;charset=utf-8");
         response.setCharacterEncoding("UTF-8");

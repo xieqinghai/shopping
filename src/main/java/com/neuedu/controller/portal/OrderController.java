@@ -10,6 +10,7 @@ import com.neuedu.pojo.UserInfo;
 import com.neuedu.service.IOrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpRequest;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -38,12 +39,30 @@ public class OrderController {
         }
         return orderService.createOrder(userInfo.getId(), shippingId);
     }
+    @RequestMapping(value = "/create/{shippingId}")
+    public ServerResponse createOrderRestful(HttpSession session,
+                                             @PathVariable("shippingId") Integer shippingId) {
+        UserInfo userInfo = (UserInfo) session.getAttribute(Const.CURRENTUSER);
+        if (userInfo == null) {
+            return ServerResponse.createServerResponseByError("需要登录");
+        }
+        return orderService.createOrder(userInfo.getId(), shippingId);
+    }
 
     /**
      * 取消订单
      */
     @RequestMapping(value = "/cancle.do")
     public ServerResponse cancle(HttpSession session, Long orderNo) {
+        UserInfo userInfo = (UserInfo) session.getAttribute(Const.CURRENTUSER);
+        if (userInfo == null) {
+            return ServerResponse.createServerResponseByError("需要登录");
+        }
+        return orderService.cancle(userInfo.getId(), orderNo);
+    }
+    @RequestMapping(value = "/cancle/{orderNo}")
+    public ServerResponse cancleRestful(HttpSession session,
+                                        @PathVariable("orderNo") Long orderNo) {
         UserInfo userInfo = (UserInfo) session.getAttribute(Const.CURRENTUSER);
         if (userInfo == null) {
             return ServerResponse.createServerResponseByError("需要登录");
@@ -76,6 +95,16 @@ public class OrderController {
         }
         return orderService.list(userInfo.getId(), pageNum, pageSize);
     }
+    @RequestMapping(value = "/list/{pageNum}/{pageSize}")
+    public ServerResponse listRestful(HttpSession session,
+                                      @PathVariable("pageNum") Integer pageNum,
+                                      @PathVariable("pageSize") Integer pageSize) {
+        UserInfo userInfo = (UserInfo) session.getAttribute(Const.CURRENTUSER);
+        if (userInfo == null) {
+            return ServerResponse.createServerResponseByError("需要登录");
+        }
+        return orderService.list(userInfo.getId(), pageNum, pageSize);
+    }
 
     /**
      * 订单详情detail
@@ -88,12 +117,28 @@ public class OrderController {
         }
         return orderService.detail(orderNo);
     }
+    @RequestMapping(value = "/detail/{orderNo}")
+    public ServerResponse detailRestful(HttpSession session, @PathVariable("orderNo") Long orderNo) {
+        UserInfo userInfo = (UserInfo) session.getAttribute(Const.CURRENTUSER);
+        if (userInfo == null) {
+            return ServerResponse.createServerResponseByError("需要登录");
+        }
+        return orderService.detail(orderNo);
+    }
 
     /**
      * 支付接口
      */
     @RequestMapping(value = "/pay.do")
     public ServerResponse pay(HttpSession session, Long orderNo) {
+        UserInfo userInfo = (UserInfo) session.getAttribute(Const.CURRENTUSER);
+        if (userInfo == null) {
+            return ServerResponse.createServerResponseByError("需要登录");
+        }
+        return orderService.pay(userInfo.getId(), orderNo);
+    }
+    @RequestMapping(value = "/pay/{orderNo}")
+    public ServerResponse payRestful(HttpSession session,@PathVariable("orderNo") Long orderNo) {
         UserInfo userInfo = (UserInfo) session.getAttribute(Const.CURRENTUSER);
         if (userInfo == null) {
             return ServerResponse.createServerResponseByError("需要登录");
@@ -142,6 +187,14 @@ public class OrderController {
      */
     @RequestMapping(value = "/query_order_pay_status.do")
     public ServerResponse query_order_pay_status(HttpSession session, Long orderNo) {
+        UserInfo userInfo = (UserInfo) session.getAttribute(Const.CURRENTUSER);
+        if (userInfo == null) {
+            return ServerResponse.createServerResponseByError("需要登录");
+        }
+        return orderService.query_order_pay_status(orderNo);
+    }
+    @RequestMapping(value = "/query_order_pay_status/{orderNo}")
+    public ServerResponse query_order_pay_statusRestful(HttpSession session,@PathVariable("orderNo") Long orderNo) {
         UserInfo userInfo = (UserInfo) session.getAttribute(Const.CURRENTUSER);
         if (userInfo == null) {
             return ServerResponse.createServerResponseByError("需要登录");

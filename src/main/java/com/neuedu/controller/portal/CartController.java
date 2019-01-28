@@ -5,6 +5,7 @@ import com.neuedu.common.ServerResponse;
 import com.neuedu.pojo.UserInfo;
 import com.neuedu.service.ICartService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -23,6 +24,18 @@ public class CartController {
      */
     @RequestMapping(value = "/add.do")
     public ServerResponse add(HttpSession session, Integer productId, Integer count) {
+
+        UserInfo userInfo = (UserInfo) session.getAttribute(Const.CURRENTUSER);
+        if (userInfo == null) {
+            return ServerResponse.createServerResponseByError("需要登录");
+        }
+
+        return cartService.add(userInfo.getId(), productId, count);
+    }
+    @RequestMapping(value = "/add/{productId}/{count}")
+    public ServerResponse addRestful(HttpSession session,
+                                     @PathVariable("productId") Integer productId,
+                                     @PathVariable("count") Integer count) {
 
         UserInfo userInfo = (UserInfo) session.getAttribute(Const.CURRENTUSER);
         if (userInfo == null) {
@@ -57,6 +70,17 @@ public class CartController {
         }
         return cartService.update(userInfo.getId(), productId, count);
     }
+    @RequestMapping(value = "/update/{productId}/{count}")
+    public ServerResponse updateRestful(HttpSession session,
+                                        @PathVariable("productId") Integer productId,
+                                        @PathVariable("count") Integer count) {
+
+        UserInfo userInfo = (UserInfo) session.getAttribute(Const.CURRENTUSER);
+        if (userInfo == null) {
+            return ServerResponse.createServerResponseByError("需要登录");
+        }
+        return cartService.update(userInfo.getId(), productId, count);
+    }
 
     /**
      * 移除购物车某个产品
@@ -83,12 +107,32 @@ public class CartController {
         }
         return cartService.select(userInfo.getId(), productId, Const.CartCheckedEnum.PRODUCT_CHECKED.getCode());
     }
+    @RequestMapping(value = "/select/{productId}")
+    public ServerResponse selectRestful(HttpSession session,
+                                        @PathVariable("productId") Integer productId) {
+
+        UserInfo userInfo = (UserInfo) session.getAttribute(Const.CURRENTUSER);
+        if (userInfo == null) {
+            return ServerResponse.createServerResponseByError("需要登录");
+        }
+        return cartService.select(userInfo.getId(), productId, Const.CartCheckedEnum.PRODUCT_CHECKED.getCode());
+    }
 
     /**
      * 购物车取消选中某个商品
      */
     @RequestMapping(value = "/un_select.do")
     public ServerResponse un_select(HttpSession session, Integer productId) {
+
+        UserInfo userInfo = (UserInfo) session.getAttribute(Const.CURRENTUSER);
+        if (userInfo == null) {
+            return ServerResponse.createServerResponseByError("需要登录");
+        }
+        return cartService.select(userInfo.getId(), productId, Const.CartCheckedEnum.PRODUCT_UNCHECKED.getCode());
+    }
+    @RequestMapping(value = "/un_select/{productId}")
+    public ServerResponse un_selectRestful(HttpSession session,
+                                           @PathVariable("productId") Integer productId) {
 
         UserInfo userInfo = (UserInfo) session.getAttribute(Const.CURRENTUSER);
         if (userInfo == null) {

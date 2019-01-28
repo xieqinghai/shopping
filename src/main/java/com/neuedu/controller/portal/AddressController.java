@@ -6,6 +6,7 @@ import com.neuedu.pojo.Shipping;
 import com.neuedu.pojo.UserInfo;
 import com.neuedu.service.IAddressService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -44,6 +45,14 @@ public class AddressController {
 
         return addressService.del(userInfo.getId(), shippingId);
     }
+    @RequestMapping(value = "/del/{shippingId}")
+    public ServerResponse delRestful(HttpSession session,@PathVariable("shippingId") Integer shippingId) {
+        UserInfo userInfo = (UserInfo) session.getAttribute(Const.CURRENTUSER);
+        if (userInfo == null) {
+            return ServerResponse.createServerResponseByError("需要登录");
+        }
+        return addressService.del(userInfo.getId(), shippingId);
+    }
 
     /**
      * 登录状态更新地址
@@ -69,6 +78,14 @@ public class AddressController {
         }
         return addressService.select(shippingId);
     }
+    @RequestMapping(value = "/select/{shippingId}")
+    public ServerResponse selectRestful(HttpSession session,@PathVariable("shippingId") Integer shippingId) {
+        UserInfo userInfo = (UserInfo) session.getAttribute(Const.CURRENTUSER);
+        if (userInfo == null) {
+            return ServerResponse.createServerResponseByError("需要登录");
+        }
+        return addressService.select(shippingId);
+    }
 
     /**
      * 地址列表
@@ -78,6 +95,16 @@ public class AddressController {
     public ServerResponse list(HttpSession session,
                                @RequestParam(required = false, defaultValue = "1") Integer pageNum,
                                @RequestParam(required = false, defaultValue = "10") Integer pageSize) {
+        UserInfo userInfo = (UserInfo) session.getAttribute(Const.CURRENTUSER);
+        if (userInfo == null) {
+            return ServerResponse.createServerResponseByError("需要登录");
+        }
+        return addressService.list(pageNum, pageSize);
+    }
+    @RequestMapping(value = "/list/{pageNum}/{pageSize}")
+    public ServerResponse listRestful(HttpSession session,
+                                      @PathVariable("pageNum") Integer pageNum,
+                                      @PathVariable("pageSize") Integer pageSize) {
         UserInfo userInfo = (UserInfo) session.getAttribute(Const.CURRENTUSER);
         if (userInfo == null) {
             return ServerResponse.createServerResponseByError("需要登录");

@@ -7,6 +7,7 @@ import com.neuedu.service.IUserService;
 import com.neuedu.utils.IpUtils;
 import com.neuedu.utils.MD5Utils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -38,11 +39,51 @@ public class UserController {
                 return ServerResponse.createServerResponseByError("无权登录");
             }
             session.setAttribute(Const.CURRENTUSER, userInfo);
+            //生成autoLogintoken token为mac地址 ****************这种方式需要再完善
+            String ip = IpUtils.getRemoteAddress(request);
+            try {
+                String mac = IpUtils.getMACAddress(ip);
+//                String token = MD5Utils.getMD5Code(mac);
+                // token改成了username+password 的md5加密
+                String token = MD5Utils.getMD5Code(username+password);
+                //token保存到数据库
+                userService.updateTokenByUserId(userInfo.getId(),token);
+                //token作为cookie响应到客户端
+                Cookie autoLoginTokenCookie = new Cookie(Const.AUTOLOGINTOKEN,token);
+                //将cookie种植到根路径下,它的自路径下的访问都能拿到此cookie
+                autoLoginTokenCookie.setPath("/");
+                autoLoginTokenCookie.setMaxAge(60*60*24*7);//代表cookie有效期为7天
+                response.addCookie(autoLoginTokenCookie);
+
+            } catch (UnknownHostException e) {
+                e.printStackTrace();
+            } catch (SocketException e) {
+                e.printStackTrace();
+            }
+
+
+        }
+        return serverResponse;
+    }
+    @RequestMapping(value = "/login/{username}/{password}")
+    public ServerResponse loginRestful(HttpServletRequest request, HttpServletResponse response, HttpSession session,
+                                       @PathVariable("username") String username,
+                                       @PathVariable("password") String password) {
+
+        ServerResponse serverResponse = userService.login(username, password);
+        if (serverResponse.isSuccess()) { //登录成功
+            UserInfo userInfo = (UserInfo) serverResponse.getData();
+            if (userInfo.getRole() == Const.RoleEnum.ROLE_ADMIN.getCode()) {
+                return ServerResponse.createServerResponseByError("无权登录");
+            }
+            session.setAttribute(Const.CURRENTUSER, userInfo);
             //生成autoLogintoken
             String ip = IpUtils.getRemoteAddress(request);
             try {
                 String mac = IpUtils.getMACAddress(ip);
-                String token = MD5Utils.getMD5Code(mac);
+//                String token = MD5Utils.getMD5Code(mac);
+                // token改成了username+password 的md5加密
+                String token = MD5Utils.getMD5Code(username+password);
                 //token保存到数据库
                 userService.updateTokenByUserId(userInfo.getId(),token);
                 //token作为cookie响应到客户端
@@ -82,12 +123,26 @@ public class UserController {
 
         return serverResponse;
     }
+    @RequestMapping(value = "/forget_get_question/{username}")
+    public ServerResponse forget_get_questionRestful(@PathVariable("username") String username) {
+        ServerResponse serverResponse = userService.forget_get_question(username);
+
+        return serverResponse;
+    }
 
     /**
      * 提交问题答案
      */
     @RequestMapping(value = "/forget_check_answer.do")
     public ServerResponse forget_check_answer(String username, String question, String answer) {
+        ServerResponse serverResponse = userService.forget_check_answer(username, question, answer);
+
+        return serverResponse;
+    }
+    @RequestMapping(value = "/forget_check_answer/{username}/{question}/{answer}")
+    public ServerResponse forget_check_answerRestful(@PathVariable("username") String username,
+                                                     @PathVariable("question") String question,
+                                                     @PathVariable("answer") String answer) {
         ServerResponse serverResponse = userService.forget_check_answer(username, question, answer);
 
         return serverResponse;
@@ -102,12 +157,26 @@ public class UserController {
 
         return serverResponse;
     }
+    @RequestMapping(value = "/forget_reset_password/{username}/{passwordNew}/{forgetToken}")
+    public ServerResponse forget_reset_passwordRestful(@PathVariable("username") String username,
+                                                       @PathVariable("passwordNew") String passwordNew,
+                                                       @PathVariable("forgetToken") String forgetToken) {
+        ServerResponse serverResponse = userService.forget_reset_password(username, passwordNew, forgetToken);
+
+        return serverResponse;
+    }
 
     /**
      * 检查用户名或邮箱是否有效
      */
     @RequestMapping(value = "/check_valid.do")
     public ServerResponse check_valid(String str, String type) {
+        ServerResponse serverResponse = userService.check_valid(str, type);
+        return serverResponse;
+    }
+    @RequestMapping(value = "/check_valid/{str}/{type}")
+    public ServerResponse check_validRestful(@PathVariable("str") String str,
+                                             @PathVariable("type") String type) {
         ServerResponse serverResponse = userService.check_valid(str, type);
         return serverResponse;
     }
@@ -137,6 +206,16 @@ public class UserController {
      */
     @RequestMapping(value = "/reset_password.do")
     public ServerResponse reset_password(HttpSession session, String passwordOld, String passwordNew) {
+        UserInfo userInfo = (UserInfo) session.getAttribute(Const.CURRENTUSER);
+        if (userInfo == null) {
+            return ServerResponse.createServerResponseByError("用户未登录");
+        }
+        return userService.reset_password(userInfo.getUsername(), passwordOld, passwordNew);
+    }
+    @RequestMapping(value = "/reset_password/{passwordOld}/{passwordNew}")
+    public ServerResponse reset_passwordRestful(HttpSession session,
+                                                @PathVariable("passwordOld") String passwordOld,
+                                                @PathVariable("passwordNew") String passwordNew) {
         UserInfo userInfo = (UserInfo) session.getAttribute(Const.CURRENTUSER);
         if (userInfo == null) {
             return ServerResponse.createServerResponseByError("用户未登录");

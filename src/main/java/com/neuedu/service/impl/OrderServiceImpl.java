@@ -46,12 +46,17 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.io.File;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.*;
 
+/**
+ * 事务管理标签
+ * @Transactional
+ * */
 @Service
 public class OrderServiceImpl implements IOrderService {
 
@@ -75,6 +80,7 @@ public class OrderServiceImpl implements IOrderService {
     /**
      * 创建订单
      */
+    @Transactional
     @Override
     public ServerResponse createOrder(Integer userId, Integer shippingId) {
         //step1:参数非空校验
@@ -98,6 +104,7 @@ public class OrderServiceImpl implements IOrderService {
         }
         orderTotalPrice = getOrderPrice(orderItemList);
         Order order = createOrder(userId, shippingId, orderTotalPrice);
+
         if (order == null) {
             return ServerResponse.createServerResponseByError("订单创建失败");
         }
@@ -130,6 +137,12 @@ public class OrderServiceImpl implements IOrderService {
         }
         orderVO.setOrderItemVOList(orderItemVOList);
         orderVO.setImageHost(PropertiesUtils.readByKey("imageHost"));
+
+        //设置时间******
+        orderVO.setPaymentTime(DateUtils.dateToStr(order.getPaymentTime()));
+        orderVO.setCreateTime(DateUtils.dateToStr(order.getCreateTime()));
+        orderVO.setCloseTime(DateUtils.dateToStr(order.getCloseTime()));
+
 
         Shipping shipping = shippingMapper.selectByPrimaryKey(shippingId);
         if (shipping != null) {
@@ -487,6 +500,7 @@ public class OrderServiceImpl implements IOrderService {
         return ServerResponse.createServerResponseBySucess(null, false);
     }
 
+    @Transactional
     @Override
     public void closeOrder(String time) {
         //step1:查询订单创建时间<time的未付款的订单
@@ -496,12 +510,21 @@ public class OrderServiceImpl implements IOrderService {
                 List<OrderItem> orderItemList = orderItemMapper.findOrderItemsByOrderNo(order.getOrderNo());
                 if(orderItemList!=null && orderItemList.size()>0) {
                     for(OrderItem orderItem:orderItemList) {
-                        Product product = productMapper.selectByPrimaryKey(orderItem.getId());
-                        if(product == null) {
+                        Integer stock = productMapper.findStockByProductId(orderItem.getProductId());
+                        //考虑高并发情况
+                        if(stock == null) {
                             continue;
                         }
-                        product.setStock(product.getStock()+orderItem.getQuantity());
-                        productMapper.updateByPrimaryKey(product);
+                        //更新商品库存
+                        stock = stock+orderItem.getQuantity();
+
+                        Product product = new Product();
+                        product.setId(orderItem.getProductId());
+                        product.setStock(stock);
+                        //动态sql更新
+                        productMapper.updateProductKeySelective(product);
+
+
                     }
                 }
                 //关闭订单
@@ -894,9 +917,10 @@ public class OrderServiceImpl implements IOrderService {
                 dumpResponse(response);
 
                 // 需要修改为运行机器上的路径
-//                String filePath = String.format("D:/ftpfile/qr-%s.png",
+                String filePath = String.format("D:/ftpfile/qr-%s.png",
                         // image/qr-%s.png
-                String filePath = String.format("image/qr-%s.png",
+                //String filePath = String.format("image/qr-%s.png",
+//                String filePath = String.format("/tmp/tomcat.4049254527875428741.8080/work/Tomcat/localhost/ROOT/image/qr-%s.png",
                         response.getOutTradeNo());
                 log.info("filePath:" + filePath);
                 ZxingUtils.getQRCodeImge(response.getQrCode(), 256, filePath);
@@ -907,6 +931,8 @@ public class OrderServiceImpl implements IOrderService {
                 Map map = Maps.newHashMap();
                 map.put("orderNo", order.getOrderNo());
                 map.put("qrCode", PropertiesUtils.readByKey("imageHost") + "/qr-" + response.getOutTradeNo() + ".png");
+                // 删除应用服务器上的地址
+                file.delete();
                 return ServerResponse.createServerResponseBySucess(null, map);
 
             case FAILED:

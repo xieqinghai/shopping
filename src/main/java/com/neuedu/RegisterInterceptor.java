@@ -1,5 +1,6 @@
 package com.neuedu;
 
+import com.neuedu.interceptor.AuthorityInterceptor;
 import com.neuedu.interceptor.AutoLoginInterceptor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringBootConfiguration;
@@ -19,6 +20,9 @@ public class RegisterInterceptor implements WebMvcConfigurer {
 
     @Autowired
     private AutoLoginInterceptor autoLoginInterceptor;
+
+    @Autowired
+    private AuthorityInterceptor authorityInterceptor;
 
     /**
      * addInterceptor()可以多个,注册多个拦截器
@@ -44,6 +48,9 @@ public class RegisterInterceptor implements WebMvcConfigurer {
         excludeList.add("/product/**");
         registry.addInterceptor(autoLoginInterceptor).addPathPatterns("/user/**").excludePathPatterns(excludeList);
         registry.addInterceptor(autoLoginInterceptor).addPathPatterns("/cart/**");
+        registry.addInterceptor(authorityInterceptor).addPathPatterns("/manage/**").excludePathPatterns("/manage/user/login.do");
+
+
     }
 
 }
